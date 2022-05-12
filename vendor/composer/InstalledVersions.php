@@ -25,24 +25,24 @@ class InstalledVersions
     private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
+    'pretty_version' => 'dev-master',
+    'version' => 'dev-master',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => '30af66d6f2f4248731f88bec4e9cacc79b4ab5eb',
     'name' => 'seynabou/poo_mvc_odc',
   ),
   'versions' => 
   array (
     'seynabou/poo_mvc_odc' => 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => '30af66d6f2f4248731f88bec4e9cacc79b4ab5eb',
     ),
     'symfony/polyfill-ctype' => 
     array (

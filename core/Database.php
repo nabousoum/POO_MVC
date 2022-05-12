@@ -7,7 +7,7 @@ namespace App\Core;
             try
             {
                // die("ok");
-                $this->pdo=new \PDO('mysql:host=localhost;dbname=poo_inscription;charset=utf8', 'root', '');
+                $this->pdo=new \PDO('mysql:host=127.0.0.1;dbname=poo_inscription;charset=utf8', 'root', '');
             }
             catch(\Exception $e)
             {

@@ -12,6 +12,7 @@ return array(
     'Symfony\\Contracts\\Translation\\' => array($vendorDir . '/symfony/translation-contracts'),
     'Symfony\\Component\\Validator\\' => array($vendorDir . '/symfony/validator'),
     'App\\Model\\' => array($baseDir . '/models'),
+    'App\\Exception\\' => array($baseDir . '/exceptions'),
     'App\\Core\\' => array($baseDir . '/core'),
     'App\\Controller\\' => array($baseDir . '/controllers'),
 );
