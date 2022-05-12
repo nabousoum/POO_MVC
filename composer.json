@@ -1,0 +1,19 @@
+{
+    "name": "seynabou/poo_mvc_odc",
+    "autoload": {
+        "psr-4": {
+            "App\\Core\\":"core/",
+            "App\\Model\\":"models/",
+            "App\\Controller\\":"controllers/"
+        }
+    },
+    "authors": [
+        {
+            "name": "nabousoum",
+            "email": "seynabousoumare98@outlook.fr"
+        }
+    ],
+    "require": {
+        "symfony/validator": "^6.0"
+    }
+}
