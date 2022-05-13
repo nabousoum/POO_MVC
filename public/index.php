@@ -13,18 +13,7 @@ use App\Exception\RouteNotFoundException;
 
   require_once("../core/Fonctions.php");
 
-  $router = new Router;
-  $router->route('/login',[SecurityController::class,"authentification"]);
-  $router->route('/logout',[SecurityController::class,"deconnexion"]);
-  $router->route('/classes',[ClasseController::class,"listerClasse"]);
-  $router->route('/classes/add',[ClasseController::class,"creerClasse"]);
-
-
-  try {
-    $router->resolve();
-  } catch (RouteNotFoundException $ex) {
-    echo $ex->message; 
-  }
+  require_once("../routes/Route.web.php");
 
  
 

@@ -9,8 +9,7 @@ class RP extends User{
     } 
 
     public static function findAll():array{
-        $sql="select * from ".self::table()." where role  like 'ROLE_RP' ";
-        echo $sql;
-        return [];
+        $sql="select * from ".parent::table()." where role  like 'ROLE_RP' ";
+        return parent::findBy($sql);
       }
 }

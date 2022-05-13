@@ -1,6 +1,9 @@
 <?php
 namespace App\Controller;
-class ModuleController{
+
+use App\Core\Controller;
+
+class ModuleController extends Controller{
     public function ajouterModule(){
 
     }

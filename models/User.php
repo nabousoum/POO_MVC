@@ -74,11 +74,7 @@ namespace App\Model;
 
      //Refinition
      public static function findAll():array{
-         $db = self::database();
-         $db->connexionBD();
         $sql="select * from ".parent::table()." where role not like 'ROLE_PROFESSEUR' ";
-        $results = $db->executeSelect($sql);
-        $db->closeConnexion();
-        return $results;
+        return parent::findBy($sql);
       }
 }

@@ -21,9 +21,19 @@ class Router{
 
     public function resolve(){
         $uri = "/".$this->request->getUri()[0];
-        //dd($uri);
         if (isset($this->routes[$uri])){
-            dd("route existe");
+            $route = $this->routes[$uri];
+            [$crtClass,$action] = $route ;
+            if(class_exists($crtClass) && method_exists($crtClass,$action)){
+                $ctrl = new $crtClass($this->request);
+                 // $ctrl = new SecurityController()
+               // $ctrl->{$action()}; // $ctrl->authentification()
+               call_user_func(array($ctrl,$action));
+            }
+            else{
+                throw new RouteNotFoundException();
+            }
+
         }
         else{
             throw new RouteNotFoundException();

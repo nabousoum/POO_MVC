@@ -1,11 +1,14 @@
 <?php
 namespace App\Controller;
-class ClasseController{
-    public function listerClasse(){
 
+use App\Core\Controller;
+
+class ClasseController extends Controller{
+    public function listerClasse(){
+        dd("je suis dans le controller classe dans l action lister classe");
     }
 
     public function creerClasse(){
-        
+        dd("je suis dans le controller classe dans l action creer classe");
     }
 }
