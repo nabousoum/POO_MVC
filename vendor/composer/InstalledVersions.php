@@ -30,11 +30,20 @@ class InstalledVersions
     'aliases' => 
     array (
     ),
-    'reference' => '30af66d6f2f4248731f88bec4e9cacc79b4ab5eb',
+    'reference' => '7426bec9b13d1194856b506fdc94fdc5bb7d47cf',
     'name' => 'seynabou/poo_mvc_odc',
   ),
   'versions' => 
   array (
+    'digiaonline/instance-factory' => 
+    array (
+      'pretty_version' => '1.1.0',
+      'version' => '1.1.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '8c9b5677df1c9c6f0e57e233c337b88e0f7b1796',
+    ),
     'seynabou/poo_mvc_odc' => 
     array (
       'pretty_version' => 'dev-master',
@@ -42,7 +51,7 @@ class InstalledVersions
       'aliases' => 
       array (
       ),
-      'reference' => '30af66d6f2f4248731f88bec4e9cacc79b4ab5eb',
+      'reference' => '7426bec9b13d1194856b506fdc94fdc5bb7d47cf',
     ),
     'symfony/polyfill-ctype' => 
     array (

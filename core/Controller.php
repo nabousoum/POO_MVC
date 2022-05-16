@@ -24,4 +24,8 @@ class Controller{
     public function redirectToRoute($uri){
         header("location:".Constantes::WEB_ROOT.$uri);
     }
+
+    public function instance(string $class, array $data){
+       return $classe = \Digia\InstanceFactory\InstanceFactory::fromProperties($class, $data);
+    }
 }

@@ -21,6 +21,10 @@ class ComposerStaticInite792d92c18471464db327eb9e9fe5705
             'Symfony\\Contracts\\Translation\\' => 30,
             'Symfony\\Component\\Validator\\' => 28,
         ),
+        'D' => 
+        array (
+            'Digia\\InstanceFactory\\' => 22,
+        ),
         'A' => 
         array (
             'App\\Model\\' => 10,
@@ -50,6 +54,10 @@ class ComposerStaticInite792d92c18471464db327eb9e9fe5705
         'Symfony\\Component\\Validator\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/validator',
+        ),
+        'Digia\\InstanceFactory\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/digiaonline/instance-factory/src',
         ),
         'App\\Model\\' => 
         array (

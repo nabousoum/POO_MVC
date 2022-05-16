@@ -98,9 +98,11 @@ class Classe extends Model{
 
     //fonctions
 
-    public function __construct()
+    public function __construct(?string $libelle=null, ?string $filiere=null, ?string $niveau=null)
     {
-        
+        $this->libelle = $libelle;
+        $this->filiere  = $filiere;
+        $this->niveau = $niveau;
     }
     public static function table()
     {

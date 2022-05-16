@@ -4,8 +4,51 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a42be184fd8204c5f2ceedeb819036fc",
+    "content-hash": "b0293d9505884cc2f664bb1a53e8c072",
     "packages": [
+        {
+            "name": "digiaonline/instance-factory",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/digiaonline/instance-factory.git",
+                "reference": "8c9b5677df1c9c6f0e57e233c337b88e0f7b1796"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/digiaonline/instance-factory/zipball/8c9b5677df1c9c6f0e57e233c337b88e0f7b1796",
+                "reference": "8c9b5677df1c9c6f0e57e233c337b88e0f7b1796",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Digia\\InstanceFactory\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sam Stenvall",
+                    "email": "sam.stenvall@digia.com"
+                }
+            ],
+            "description": "A factory for constructing objects from arrays of properties",
+            "support": {
+                "issues": "https://github.com/digiaonline/instance-factory/issues",
+                "source": "https://github.com/digiaonline/instance-factory/tree/master"
+            },
+            "time": "2018-11-07T11:07:25+00:00"
+        },
         {
             "name": "symfony/polyfill-ctype",
             "version": "v1.25.0",
