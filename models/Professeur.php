@@ -13,7 +13,11 @@ use User;
       {
           self::$role="ROLE_PROFESSEUR";
       }
-
+        
+      public static function role()
+      {
+          return self::$role='ROLE_PROFESSEUR';
+      }
           /**
      * Get the value of grade
      */ 
@@ -44,7 +48,7 @@ use User;
     }
 
   public static function findAll():array{
-      $sql="select * from ".parent::table()." where role  like 'ROLE_PROFESSEUR' ";
+      $sql="select * from ".parent::table()." where role  like '".self::role()."' ";
       return parent::findBy($sql);
     }
 
@@ -61,12 +65,17 @@ use User;
   public function insert():int{
     $db = self::database();
     $db->connexionBD();
-    $sql="INSERT INTO `personne` (`nom_complet`, `role`,`grade`) VALUES (?,?,?);";
-    $result =  $db->executeUpdate($sql,[$this->nomComplet,parent::$role,$this->grade]);
+    $sql="INSERT INTO `personne` (`nom_complet`,`sexe`,`grade`,`role`) VALUES (?,?,?,?);";
+    $result =  $db->executeUpdate($sql,[$this->nomComplet,$this->sexe,$this->grade,parent::$role]);
     $db->closeConnexion();
     echo $sql;
     return $result;
   }
+
+   //fonctions
+   public function rp():RP{
+    return new RP();
+   }
 
 
 }

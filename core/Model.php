@@ -5,6 +5,7 @@ namespace App\Core;
 
 abstract class Model implements IModel{
 protected static string $table;
+protected static string $role;
 
 
   protected  static function database():Database{
@@ -14,6 +15,11 @@ protected static string $table;
   public static function table()
   {
       return self::$table='';
+  }
+
+  public static function role()
+  {
+      return self::$role='';
   }
   //Redefinition des Fonction IModel  
   public function insert():int{
@@ -51,7 +57,7 @@ protected static string $table;
       echo $sql;
       return $result;
   }
-  public static function findBy(string $sql,array $data=null,$single=false):object|null|array{
+  public static function findBy(string $sql,array $data=[],$single=false):object|null|array{
       $db = self::database();
       $db->connexionBD();
       $result =  $db->executeSelect($sql,$data,$single );

@@ -4,10 +4,11 @@ namespace App\Core;
 use App\Core\Request;
 class Controller{
 
+    protected Session $session;
     protected Request $request;
     public function __construct(Request $request){
-
         $this->request = $request;
+        $this->session = new Session;
     }
 
     public function render(string $path, array $data=[] ){

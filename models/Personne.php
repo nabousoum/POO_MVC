@@ -10,9 +10,7 @@ use App\Core\Model;
     protected int $id;
     protected string $nomComplet;
     protected static string $role;
-    //Attributs classes ou static 
-    private static int $nbrePersonne; 
-    //Methodes Abstraites
+    protected string $sexe;
 
     //Constructeur Par defaut
     public function __construct()
@@ -30,9 +28,7 @@ use App\Core\Model;
         return $this->nomComplet;
     }
    //:: Operateur de portee de classe
-    public static function getNbrePersonne():int{
-        return self::$nbrePersonne;
-    }
+   
     //Setters
     public function setId(int $id) :self{
         $this->id=$id;
@@ -42,10 +38,27 @@ use App\Core\Model;
         $this->nomComplet=$nomComplet;
         return $this;
     }
-    public  static function setNbrePersonne(int $nbrePersonne) :void{
-       self::$nbrePersonne=$nbrePersonne;
-      
-    }
+    /**
+  * Get the value of sexe
+  */ 
+ public function getSexe()
+ {
+  return $this->sexe;
+ }
+
+ /**
+  * Set the value of sexe
+  *
+  * @return  self
+  */ 
+ public function setSexe($sexe)
+ {
+  $this->sexe = $sexe;
+
+  return $this;
+ }
+
+ 
     public static function findAll():array{
         $sql="select * from '".self::table()."'";
         echo $sql;

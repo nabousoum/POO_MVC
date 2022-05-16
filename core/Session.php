@@ -7,6 +7,7 @@ use App\Model\User;
 class Session{
 
     private User $user;
+    
     public function __construct()
     {
         if(session_status()==PHP_SESSION_NONE){
@@ -15,11 +16,11 @@ class Session{
         
     }
 
-    public function set(string $key, $data){
+    public function setSession(string $key, $data){
         $_SESSION[$key] = $data;
     }
 
-    public function get(string $key){
+    public function getSession(string $key){
         return $_SESSION[$key];
     }
 

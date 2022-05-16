@@ -3,16 +3,21 @@
 namespace App\Model;
 
 class Etudiant extends User{
+
  private string $matricule;
- private string $sexe;
  private string $adresse;
+
+
  public function __construct()
  {
     self::$role="ROLE_ETUDIANT";
  } 
  
+ public static function role()
+ {
+     return self::$role='ROLE_ETUDIANT';
+ }
  
-
  /**
   * Get the value of matricule
   */ 
@@ -33,50 +38,46 @@ class Etudiant extends User{
   return $this;
  }
 
- /**
-  * Get the value of sexe
-  */ 
- public function getSexe()
- {
-  return $this->sexe;
- }
-
- /**
-  * Set the value of sexe
-  *
-  * @return  self
-  */ 
- public function setSexe($sexe)
- {
-  $this->sexe = $sexe;
-
-  return $this;
- }
-
+ 
  /**
   * Get the value of adresse
   */ 
- public function getAdresse()
- {
-  return $this->adresse;
- }
+    public function getAdresse()
+    {
+      return $this->adresse;
+    }
 
- /**
-  * Set the value of adresse
-  *
-  * @return  self
-  */ 
- public function setAdresse($adresse)
- {
-  $this->adresse = $adresse;
+    /**
+      * Set the value of adresse
+      *
+      * @return  self
+      */ 
+    public function setAdresse($adresse)
+    {
+      $this->adresse = $adresse;
 
-  return $this;
- }
+      return $this;
+    }
 
- public static function findAll():array{
-   $sql="select * from ".parent::table()." where role  like 'ROLE_ETUDIANT' ";
-   echo $sql;  
-   return [];
- }
+    public static function findAll():array{
+      $sql="select * from ".parent::table()." where role  like '".self::role()."' ";
+      return parent::findBy($sql);
+    }
+
+    public function inscriptions():array{
+      $sql="select i.* from ".parent::table()." p, inscription  
+          i where  p.id=i.etudiant_id
+          and p.id=?";
+      return parent::findBy($sql,[17]);
+  }
+    public function insert():int{
+      $db = self::database();
+      $db->connexionBD();
+      $sql="INSERT INTO ".parent::table()." (`nom_complet`,`sexe`,`login`,`password`,`matricule`,`role`,`adresse`) VALUES (?,?,?,?,?,?,?);";
+      $result =  $db->executeUpdate($sql,[$this->nomComplet,$this->sexe,$this->login,$this->password,$this->matricule,parent::$role,$this->adresse]);
+      $db->closeConnexion();
+      echo $sql;
+      return $result;
+  }
 
 }

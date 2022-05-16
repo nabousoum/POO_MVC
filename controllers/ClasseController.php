@@ -9,6 +9,12 @@ class ClasseController extends Controller{
     }
 
     public function creerClasse(){
-        dd("je suis dans le controller classe dans l action creer classe");
+        if($this->request->isGet()){
+            $this->render('classe/creer.html.php');
+        }
+        if($this->request->isPost()){
+          
+      }
     }
+
 }
