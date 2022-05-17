@@ -6,9 +6,9 @@ use App\Core\Router;
 use App\Core\Request;
 use App\Exception\RouteNotFoundException;
 
-  ini_set('display_errors', 1);
-  ini_set('display_startup_errors', 1);
-  error_reporting(E_ALL);
+  // ini_set('display_errors', 1);
+  // ini_set('display_startup_errors', 1);
+  // error_reporting(E_ALL);
   require("../vendor/autoload.php");  
 
   require_once("../core/Fonctions.php");
@@ -42,7 +42,7 @@ use App\Model\RP;
   // $rp->insert();
 
 //dd($rp->demandes());
-//dd(RP::findAll());
+//dd(Professeur::findAll());
 // $as = new AnneeScolaire();
 // dd($as->inscriptions());
   // $prof = new Professeur();

@@ -38,25 +38,25 @@ use App\Core\Model;
         $this->nomComplet=$nomComplet;
         return $this;
     }
+        /**
+     * Get the value of sexe
+    */ 
+    public function getSexe()
+    {
+    return $this->sexe;
+    }
+
     /**
-  * Get the value of sexe
-  */ 
- public function getSexe()
- {
-  return $this->sexe;
- }
+     * Set the value of sexe
+    *
+    * @return  self
+    */ 
+    public function setSexe($sexe)
+    {
+    $this->sexe = $sexe;
 
- /**
-  * Set the value of sexe
-  *
-  * @return  self
-  */ 
- public function setSexe($sexe)
- {
-  $this->sexe = $sexe;
-
-  return $this;
- }
+    return $this;
+    }
 
  
     public static function findAll():array{
