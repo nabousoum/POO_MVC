@@ -2,14 +2,17 @@
 
 namespace App\Core;
 
+use App\Core\Controller;
 use App\Exception\RouteNotFoundException;
 
 class Router{
 
     private Request $request;
+    private Controller $controller;
 
     public function __construct(){
         $this->request = new Request;
+        $this->controller = new Controller($this->request);
     }
     
 
@@ -36,7 +39,7 @@ class Router{
 
         }
         else{
-            throw new RouteNotFoundException();
+           $this->controller->redirectToRoute('login');
         }
     }
 }

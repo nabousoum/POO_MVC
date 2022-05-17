@@ -1,8 +1,9 @@
 <?php
 namespace App\Controller;
 
-use App\Core\Controller;
+use App\Core\Role;
 use App\Model\Classe;
+use App\Core\Controller;
 use Digia\InstanceFactory\InstanceFactory;
 
 class ClasseController extends Controller{
@@ -12,7 +13,12 @@ class ClasseController extends Controller{
 
     public function creerClasse(){
         if($this->request->isGet()){
-            $this->render('classe/creer.html.php');
+            if(!Role::isConnect()){
+                $this->redirectToRoute('login');
+            }
+            else{
+                $this->render('classe/creer.html.php');
+            }
         }
         if($this->request->isPost()){
             $classe = $this->instance(Classe::class,$_POST);

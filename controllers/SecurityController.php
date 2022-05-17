@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Model\User;
 use App\Core\Controller;
+use App\Core\Role;
 
 class SecurityController extends Controller{
 
@@ -15,7 +16,16 @@ class SecurityController extends Controller{
            $user_connect = User::findUserByLoginAndPassword($_POST["login"],$_POST["password"]); 
            if ($user_connect != NULL){
                $this->session->setSession('user',$user_connect);
-               //dd($$_SESSION);
+              // dd($this->session->getSession('user')->role);
+               if(Role::isRP()){
+                    dd('page rp');
+               }
+               elseif(Role::isAC()){
+                   dd('page ac');
+               }
+               elseif(Role::isEtudiant()){
+                   dd('page etudiant');
+               }
                $this->render('personne/accueil.html.php');
             }
             else{
@@ -25,6 +35,9 @@ class SecurityController extends Controller{
     }
 
     public function deconnexion(){
-       $this->redirectToRoute('login');
+        session_destroy();
+        $this->redirectToRoute('login');
+        exit();
+       
     }
 }
