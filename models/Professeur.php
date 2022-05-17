@@ -47,11 +47,6 @@ use User;
         return self::$table='professeur';
     }
 
-  public static function findAll():array{
-      $sql="select * from ".parent::table()." where role  like '".self::role()."' ";
-      return parent::findBy($sql);
-    }
-
     public static function delete(int $id):int{
       $db = self::database();
       $db->connexionBD();

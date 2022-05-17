@@ -72,9 +72,4 @@ namespace App\Model;
         return parent::findBy("select * from personne where login=? and password=? ",[$login,$password],true);
     }
 
-     //Refinition
-     public static function findAll():array{
-        $sql="select * from ".parent::table()." where role not like 'ROLE_PROFESSEUR' ";
-        return parent::findBy($sql);
-      }
 }

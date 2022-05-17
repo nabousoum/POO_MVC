@@ -120,12 +120,6 @@ class Classe extends Model{
         echo $sql;
         return $result;
     }
-
-    public static function findAll():array{
-        $sql="select * from ".self::table();
-        return parent::findBy($sql);
-    }
-
     public static function delete(int $id):int{
         $sql="delete from '".self::table()."' where id=$id";
         echo $sql;

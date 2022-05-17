@@ -80,11 +80,6 @@ class AnneeScolaire extends Model{
 
     // fonctions
 
-    public static function findAll():array{
-        $sql="select * from ".self::table();
-        return parent::findBy($sql);
-      }
-    
       public function insert():int{
         $db = self::database();
         $db->connexionBD();

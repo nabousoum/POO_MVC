@@ -20,6 +20,11 @@ use App\Core\Model;
     {
         return parent::$table="personne";
     }
+    
+    public static function role()
+    {
+        return self::$role='';
+    }
     //Getters 
     public function getId():int{
         return $this->id;
@@ -60,9 +65,8 @@ use App\Core\Model;
 
  
     public static function findAll():array{
-        $sql="select * from '".self::table()."'";
-        echo $sql;
-      return [];
+        $sql="select * from ".self::table()." where role  like ? ";
+        return parent::findBy($sql,[get_called_class()::role()]);
     }
    
 }

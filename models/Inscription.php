@@ -73,11 +73,11 @@ class Inscription extends Model{
         return parent::findBy($sql,[2],true);
     }
 
-    public function demandes():array{
-        $sql="select d.* from ".self::table()." i, demande  
-            d where  i.id=d.inscription_id
-            and i.id=?";
-        return parent::findBy($sql,[2]);
+    public static function demandes($id_sess):array{
+        $sql="select d.libelle,d.etat_demande from ".self::table()." i, demande  
+            d ,personne p where  i.id=d.inscription_id
+            and p.id=?";
+        return parent::findBy($sql,[$id_sess]);
     }
 
     public function insert():int{
@@ -90,8 +90,13 @@ class Inscription extends Model{
         return $result;
     }
 
-    public static function findAll():array{
-        $sql="select * from ".self::table();
+    public static function findInscription(){
+        $sql = "select i.etat_ins,p.nom_complet, p.matricule,p.sexe,c.libelle as 'libelleClasse',a.libelle
+               from personne p, classe c, annee_scolaire a, inscription i
+               where i.etudiant_id=p.id
+               and i.classe_id=c.id
+               and i.annee_id=a.id
+               and p.role='ROLE_ETUDIANT'";
         return parent::findBy($sql);
     }
 }

@@ -76,9 +76,4 @@ class Module extends Model{
         return $result;
     }
 
-    public static function findAll():array{
-        $sql="select * from ".self::table();
-        return parent::findBy($sql);
-    }
-
 }

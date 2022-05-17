@@ -18,15 +18,15 @@ class SecurityController extends Controller{
                $this->session->setSession('user',$user_connect);
               // dd($this->session->getSession('user')->role);
                if(Role::isRP()){
-                    dd('page rp');
+                  $this->redirectToRoute('liste-prof');
                }
                elseif(Role::isAC()){
-                   dd('page ac');
+                $this->redirectToRoute('liste-insc');
                }
                elseif(Role::isEtudiant()){
-                   dd('page etudiant');
+                $this->redirectToRoute('liste-demande');
                }
-               $this->render('personne/accueil.html.php');
+              // $this->render('personne/accueil.html.php');
             }
             else{
                 dd('erreur');

@@ -5,8 +5,7 @@ use App\Model\User;
 use App\Core\Router;
 use App\Core\Request;
 use App\Exception\RouteNotFoundException;
-
-  // ini_set('display_errors', 1);
+ // ini_set('display_errors', 1);
   // ini_set('display_startup_errors', 1);
   // error_reporting(E_ALL);
   require("../vendor/autoload.php");  
@@ -32,6 +31,8 @@ use App\Model\Inscription;
 use App\Model\Module;
 use App\Model\RP;
 
+//dd(Inscription::findByNabou());
+
     //$rp = new RP();
   // $rp->setNomComplet('mimi thiam');
   // $rp->setSexe('feminin');
@@ -42,7 +43,7 @@ use App\Model\RP;
   // $rp->insert();
 
 //dd($rp->demandes());
-//dd(Professeur::findAll());
+//dd(RP::findAll());
 // $as = new AnneeScolaire();
 // dd($as->inscriptions());
   // $prof = new Professeur();

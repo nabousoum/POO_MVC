@@ -16,10 +16,7 @@ class AC extends User{
   {
       return self::$role='ROLE_AC';
   }
-  public static function findAll():array{
-    $sql="select * from ".parent::table()." where role  like '".self::role()."' ";
-    return parent::findBy($sql);
-  }
+
 
   public function insert():int{
     $db = self::database();

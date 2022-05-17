@@ -17,10 +17,7 @@ protected static string $role;
       return self::$table='';
   }
 
-  public static function role()
-  {
-      return self::$role='';
-  }
+ 
   //Redefinition des Fonction IModel  
   public function insert():int{
       return 0;
@@ -39,13 +36,9 @@ protected static string $role;
       return $result;
   }
   public static function findAll():array{
-      $db = self::database();
-      $db->connexionBD();
-      $sql="select * from ".self::table();
-      $result =  $db->executeSelect($sql);
-      $db->closeConnexion();
-      echo $sql;
-      return $result;
+     
+      $sql="select * from ".get_called_class()::table();
+      return self::findBy($sql);
   }
   public static function findById(int $id):object|null
   {

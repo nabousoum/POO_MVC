@@ -59,10 +59,6 @@ class Etudiant extends User{
       return $this;
     }
 
-    public static function findAll():array{
-      $sql="select * from ".parent::table()." where role  like '".self::role()."' ";
-      return parent::findBy($sql);
-    }
 
     public function inscriptions():array{
       $sql="select i.* from ".parent::table()." p, inscription  

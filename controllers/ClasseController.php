@@ -13,7 +13,7 @@ class ClasseController extends Controller{
 
     public function creerClasse(){
         if($this->request->isGet()){
-            if(!Role::isConnect()){
+            if(!Role::isRP()){
                 $this->redirectToRoute('login');
             }
             else{
