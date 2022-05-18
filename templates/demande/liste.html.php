@@ -1,7 +1,7 @@
 
 <div class="container mt-5">
     <h1>BIENVENUE <?= $_SESSION['user']->nom_complet ?></h1>
-    <table class="table">
+    <table class="table table-striped">
     <thead>
         <tr>
         <th scope="col">Libelle demande</th>

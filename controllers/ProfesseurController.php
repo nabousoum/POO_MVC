@@ -17,6 +17,7 @@ class ProfesseurController extends Controller{
             }
             else{
                 $data = Professeur::findAll();
+                //dd($data[0]->id);
                 $this->render('professeur/listerProf.html.php',$data);
             }
         }

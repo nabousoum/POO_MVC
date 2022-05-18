@@ -1,7 +1,7 @@
 
 <div class="container mt-5">
     <h1>Liste des etudiants inscrits</h1>
-    <table class="table">
+    <table class="table table-striped">
     <thead>
         <tr>
         <th scope="col">Nom complet</th>
