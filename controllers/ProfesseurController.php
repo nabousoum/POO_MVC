@@ -16,9 +16,11 @@ class ProfesseurController extends Controller{
                 $this->redirectToRoute('login');
             }
             else{
-                $data = Professeur::findAll();
+                $profs = Professeur::findAll();
                 //dd($data[0]->id);
-                $this->render('professeur/listerProf.html.php',$data);
+                $this->render('professeur/listerProf.html.php',$data=[
+                    "profs"=>$profs
+                ]);
             }
         }
         if($this->request->isPost()){

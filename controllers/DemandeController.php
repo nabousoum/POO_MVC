@@ -16,10 +16,12 @@ class DemandeController extends Controller{
             else{
               
                 //dd($data);
-               $data = Inscription::demandes($this->session->getSession('user')->id);
+               $demandes = Inscription::demandes($this->session->getSession('user')->id);
                 //$data = $this->session->getSession('user')->nom_complet;
                 //dd($data);
-                $this->render('demande/liste.html.php',$data);
+                $this->render('demande/liste.html.php',$data=[
+                    "demandes"=>$demandes
+                ]);
             }
         }
         if($this->request->isPost()){

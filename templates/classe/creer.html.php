@@ -1,18 +1,18 @@
 
-<div class="container" mt-5>
+<div class="container mt-5" >
     <form action="" method="POST" role="form">
-        <legend>Form title</legend>
+        <legend>AJOUT CLASSE</legend>
 
         <div class="form-group">
-            <label for="">label</label>
+            <label for="">Libelle</label>
             <input type="text" class="form-control w-60" name="libelle" id="" placeholder="Input field">
         </div>
         <div class="form-group">
-            <label for="">label</label>
+            <label for="">Filiere</label>
             <input type="text" class="form-control w-60" name="filiere" id="" placeholder="Input field">
         </div>
         <div class="form-group">
-            <label for="">label</label>
+            <label for="">Niveau</label>
             <input type="text" class="form-control w-60" name="niveau" id="" placeholder="Input field">
         </div>
 

@@ -1,3 +1,10 @@
-body{
-    background-color: red;
+.blue
+{
+    color: rgb(107, 107, 254);
+}
+.red{
+    color: rgb(254, 93, 93);
+}
+.green{
+    color:rgb(113, 253, 113);
 }

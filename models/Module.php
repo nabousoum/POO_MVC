@@ -10,6 +10,12 @@ class Module extends Model{
     private int $id;
     private string $libelle;
 
+
+    public function __construct(?string $libelle=null)
+    {
+        $this->libelle = $libelle;
+    }
+
     public static function table()
     {
         return parent::$table="module";
@@ -69,8 +75,8 @@ class Module extends Model{
     public function insert():int{
         $db = self::database();
         $db->connexionBD();
-        $sql="INSERT INTO ".self::table()." (`libelle`) VALUES (?);";
-        $result =  $db->executeUpdate($sql,[$this->libelle]);
+        $sql="INSERT INTO ".self::table()." (`libelle`,`rp_id`) VALUES (?,?);";
+        $result =  $db->executeUpdate($sql,[$this->libelle,$_SESSION['user']->id]);
         $db->closeConnexion();
         echo $sql;
         return $result;

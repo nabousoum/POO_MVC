@@ -9,7 +9,7 @@
         </tr>
     </thead>
     <tbody>
-    <?php foreach($data as $value) : ?>
+    <?php foreach($demandes as $value) : ?>
         <tr>
              <td><?= $value->libelle ?></td>
             <td><?= $value->etat_demande ?></td>

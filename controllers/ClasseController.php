@@ -8,7 +8,21 @@ use Digia\InstanceFactory\InstanceFactory;
 
 class ClasseController extends Controller{
     public function listerClasse(){
-        dd("je suis dans le controller classe dans l action lister classe");
+        if($this->request->isGet()){
+            if(!Role::isRP()){
+                $this->redirectToRoute('login');
+            }
+            else{
+                $classes = Classe::findAll();
+                //dd($data);
+                $this->render('classe/liste.html.php',$data=[
+                    "classes"=>$classes
+                ]);
+            }
+        }
+        if($this->request->isPost()){
+          
+        }
     }
 
     public function creerClasse(){
