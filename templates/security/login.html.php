@@ -17,9 +17,9 @@
                   <p>SVP connectez-vous sur votre compte!!</p>
 
                   <div class="form-outline mb-4">
-                    <input type="email"  name="login" id="form2Example11" class="form-control"
+                    <input type="email"  name="login" id="validationServer01" class="form-control"
                       placeholder="Phone number or email address" />
-                    <label class="form-label" for="form2Example11">Login</label>
+                    <label class="form-label" for="validationServer01">Login</label>
                   </div>
 
                   <div class="form-outline mb-4">

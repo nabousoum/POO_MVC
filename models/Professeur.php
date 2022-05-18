@@ -9,9 +9,12 @@ use User;
 
     private string $grade;
     
-      public function __construct()
+      public function __construct(?string $nomComplet=null, ?string $sexe=null, ?string $grade=null)
       {
           self::$role="ROLE_PROFESSEUR";
+          $this->nomComplet = $nomComplet;
+          $this->sexe  = $sexe;
+          $this->grade = $grade;
       }
         
       public static function role()

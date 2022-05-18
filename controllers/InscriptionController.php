@@ -14,8 +14,10 @@ class InscriptionController extends Controller{
                 $this->redirectToRoute('login');
             }
             else{
-                $data = Inscription::findInscription();
-                $this->render('inscription/liste.html.php',$data);
+                $inscriptions = Inscription::findInscription();
+                $this->render('inscription/liste.html.php',$data=[
+                    "inscriptions"=>$inscriptions
+                ]);
             }
         }
         if($this->request->isPost()){

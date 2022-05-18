@@ -13,7 +13,7 @@
         </tr>
     </thead>
     <tbody>
-    <?php foreach($data as $value) : ?>
+    <?php foreach($inscriptions as $value) : ?>
         <tr>
             <td><?= $value->nom_complet ?></td>
             <td><?= $value->matricule ?></td>

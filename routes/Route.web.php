@@ -22,7 +22,7 @@ $router->route('/liste-insc',[InscriptionController::class,"lister"]);
 $router->route('/liste-demande',[DemandeController::class,"lister"]);
 $router->route('/liste-module',[ModuleController::class,"listerModule"]);
 $router->route('/add-module',[ModuleController::class,"ajouterModule"]);
-
+$router->route('/add-prof',[ProfesseurController::class,"ajouterProf"]);
 
 
 

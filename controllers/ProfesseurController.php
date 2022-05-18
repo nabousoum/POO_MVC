@@ -7,9 +7,26 @@ use App\Core\Controller;
 use App\Model\Professeur;
 
 class ProfesseurController extends Controller{
+
     public function affecterClasse(){
         
     }
+
+    public function ajouterProf(){
+        if($this->request->isGet()){
+            if(!Role::isRP()){
+                $this->redirectToRoute('login');
+            }
+            else{
+                $this->render('professeur/creerProf.html.php');
+            }
+        }
+        if($this->request->isPost()){
+            $prof = $this->instance(Professeur::class,$_POST);
+            $prof->insert();
+        }
+    }
+
     public function listerProf(){
         if($this->request->isGet()){
             if(!Role::isRP()){
