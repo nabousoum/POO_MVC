@@ -1,5 +1,8 @@
 <div class="container mt-5">
     <h1>Liste des Modules</h1>
+    <a class="nav-link" href="<?=$Constantes::WEB_ROOT."add-module"?>">
+        <button type="button" class="btn btn-primary">AJOUTER UNE MODULE</button>
+    </a>
     <table class="table table-striped">
         <thead>
             <tr>

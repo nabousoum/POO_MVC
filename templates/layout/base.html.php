@@ -29,16 +29,22 @@
                 <!-- Left links -->
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="<?=$Constantes::WEB_ROOT."add-classe"?>">CREER CLASSE</a>
+                        <a class="nav-link" href="<?=$Constantes::WEB_ROOT."liste-module"?>">
+                            <i class="fa-solid fa-list"></i>
+                            LISTER MODULES
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?=$Constantes::WEB_ROOT."liste-module"?>">LISTER MODULES</a>
+                        <a class="nav-link" href="<?=$Constantes::WEB_ROOT."classes"?>">
+                            <i class="fa-solid fa-list"></i>
+                            LISTER CLASSES
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?=$Constantes::WEB_ROOT."classes"?>">LISTER CLASSES</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?=$Constantes::WEB_ROOT."liste-prof"?>">LISTER PROFESSEURS</a>
+                        <a class="nav-link" href="<?=$Constantes::WEB_ROOT."liste-prof"?>">
+                            <i class="fa-solid fa-list"></i>
+                         LISTER PROFESSEURS
+                        </a>
                     </li>
                 </ul>
                 <!-- Left links -->

@@ -17,6 +17,7 @@
         </div>
         <div>
             <button type="submit" class="btn btn-primary">Submit</button>
+            <a class="nav-link" href="<?=$Constantes::WEB_ROOT."classes"?>"><button type="button" class="btn btn-success">Voir la liste</button></a>  
         </div>
       
     </form>
