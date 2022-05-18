@@ -15,8 +15,10 @@
             <label for="">Niveau</label>
             <input type="text" class="form-control w-60" name="niveau" id="" placeholder="Input field">
         </div>
-
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      
     </form>
 
 </div>

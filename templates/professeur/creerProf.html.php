@@ -16,8 +16,12 @@
             <label for="">Grade</label>
             <input type="text" class="form-control w-60" name="grade" id="" placeholder="Input field">
         </div>
-
+        <div>
         <button type="submit" class="btn btn-primary">Submit</button>
+        <a class="nav-link" href="<?=$Constantes::WEB_ROOT."liste-prof"?>"><button type="button" class="btn btn-success">Voir la liste</button></a>  
+        </div>  
+    </div>
+
     </form>
 
 </div>
