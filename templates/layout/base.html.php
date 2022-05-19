@@ -1,4 +1,5 @@
-
+<?php
+use App\Core\Role; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,27 +27,68 @@
                 <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
                     style="width: 135px;" alt="logo">
                 </a>
-                <!-- Left links -->
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?=$Constantes::WEB_ROOT."liste-module"?>">
-                            <i class="fa-solid fa-list"></i>
-                            LISTER MODULES
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?=$Constantes::WEB_ROOT."classes"?>">
-                            <i class="fa-solid fa-list"></i>
-                            LISTER CLASSES
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?=$Constantes::WEB_ROOT."liste-prof"?>">
-                            <i class="fa-solid fa-list"></i>
-                         LISTER PROFESSEURS
-                        </a>
-                    </li>
-                </ul>
+                <?php if(Role::isRP()):?>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?=$Constantes::WEB_ROOT."liste-module"?>">
+                                <i class="fa-solid fa-list"></i>
+                                LISTER MODULES
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?=$Constantes::WEB_ROOT."classes"?>">
+                                <i class="fa-solid fa-list"></i>
+                                LISTER CLASSES
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?=$Constantes::WEB_ROOT."liste-prof"?>">
+                                <i class="fa-solid fa-list"></i>
+                            LISTER PROFESSEURS
+                            </a>
+                        </li>
+                    </ul>
+                <?php endif?>
+                <?php if(Role::isAC()):?>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?=$Constantes::WEB_ROOT."liste-insc"?>">
+                                <i class="fa-solid fa-list"></i>
+                                LISTE DES INSCRIPTIONS
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?=$Constantes::WEB_ROOT."liste-etu"?>">
+                                <i class="fa-solid fa-list"></i>
+                                LISTE DES ETUDIANTS
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?=$Constantes::WEB_ROOT."add-insc"?>">
+                                <i class="fa-solid fa-list"></i>
+                                INSCRIRE
+                            </a>
+                        </li>
+                        
+                    </ul>
+                <?php endif?>
+                <?php if(Role::isEtudiant()):?>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?=$Constantes::WEB_ROOT."liste-demande"?>">
+                                <i class="fa-solid fa-list"></i>
+                                LISTE DES DEMANDES
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="fa-solid fa-list"></i>
+                                FAIRE UNE INSCRIPTION
+                            </a>
+                        </li>
+                        
+                    </ul>
+                <?php endif?>
                 <!-- Left links -->
             </div>
             <!-- Collapsible wrapper -->
@@ -61,6 +103,7 @@
     </nav>
     <!-- Navbar -->
 <?php endif?>
+
 <?=$contents_for_views?>
 <script src="<?=$Constantes::WEB_ROOT.'bootstrap/bootstrap.bundle.min.js'?>"></script>
 </body>

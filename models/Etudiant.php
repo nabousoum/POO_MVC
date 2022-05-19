@@ -8,10 +8,13 @@ class Etudiant extends User{
  private string $adresse;
 
 
- public function __construct()
+ public function __construct(?string $nomComplet=null, ?string $sexe=null, ?string $adresse=null)
  {
-    self::$role="ROLE_ETUDIANT";
- } 
+     self::$role="ROLE_ETUDIANT";
+     $this->nomComplet = $nomComplet;
+     $this->sexe  = $sexe;
+     $this->adresse = $adresse;
+ }
  
  public static function role()
  {
@@ -69,8 +72,8 @@ class Etudiant extends User{
     public function insert():int{
       $db = self::database();
       $db->connexionBD();
-      $sql="INSERT INTO ".parent::table()." (`nom_complet`,`sexe`,`login`,`password`,`matricule`,`role`,`adresse`) VALUES (?,?,?,?,?,?,?);";
-      $result =  $db->executeUpdate($sql,[$this->nomComplet,$this->sexe,$this->login,$this->password,$this->matricule,parent::$role,$this->adresse]);
+      $sql="INSERT INTO ".parent::table()." (`nom_complet`,`sexe`,`role`,`adresse`) VALUES (?,?,?,?);";
+      $result =  $db->executeUpdate($sql,[$this->nomComplet,$this->sexe,parent::$role,$this->adresse]);
       $db->closeConnexion();
       return $result;
   }

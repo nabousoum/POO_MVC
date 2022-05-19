@@ -38,6 +38,6 @@ namespace App\Core;
             $query = $this->pdo->prepare($sql);
             $query->execute($data);
             $result = $query->rowCount();
-            return $result;   
+            return $this->pdo->lastInsertId('id');   
         }
     }

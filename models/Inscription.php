@@ -38,8 +38,11 @@ class Inscription extends Model{
 
 
     //fonctions
-    public function __construct()
+    public function __construct(?string $etat=null,?int $etudiant_id=null,?int $classe_id=null)
     {
+        $this->etat = "en cours";
+        $this->etudiant_id=$etudiant_id;
+        $this->classe_id=$classe_id;
 
     }
 
@@ -84,7 +87,7 @@ class Inscription extends Model{
         $db = self::database();
         $db->connexionBD();
         $sql="INSERT INTO ".self::table()." (`etat_ins`,`ac_id`,`etudiant_id`,`classe_id`,`annee_id`) VALUES (?,?,?,?,?);";
-        $result =  $db->executeUpdate($sql,[$this->etat,10,17,2,2]);
+        $result =  $db->executeUpdate($sql,[$this->etat,$_SESSION['user']->id,$this->etudiant_id,$this->classe_id,1]);
         $db->closeConnexion();
         return $result;
     }

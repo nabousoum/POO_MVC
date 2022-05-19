@@ -4,6 +4,7 @@ namespace App\Controller;
 use App\Core\Role;
 use App\Model\Classe;
 use App\Core\Controller;
+use App\Model\Inscription;
 use Digia\InstanceFactory\InstanceFactory;
 
 class ClasseController extends Controller{

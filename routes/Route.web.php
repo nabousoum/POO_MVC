@@ -4,6 +4,7 @@ use App\Core\Router;
 use App\Controller\ClasseController;
 use App\Controller\ModuleController;
 use App\Controller\DemandeController;
+use App\Controller\EtudiantController;
 use App\Controller\PersonneController;
 use App\Controller\SecurityController;
 use App\Controller\ProfesseurController;
@@ -23,6 +24,10 @@ $router->route('/liste-demande',[DemandeController::class,"lister"]);
 $router->route('/liste-module',[ModuleController::class,"listerModule"]);
 $router->route('/add-module',[ModuleController::class,"ajouterModule"]);
 $router->route('/add-prof',[ProfesseurController::class,"ajouterProf"]);
+$router->route('/liste-etu',[EtudiantController::class,"lister"]);
+$router->route('/add-insc',[InscriptionController::class,"creer"]);
+
+
 
 
 
