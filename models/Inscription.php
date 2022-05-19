@@ -86,7 +86,6 @@ class Inscription extends Model{
         $sql="INSERT INTO ".self::table()." (`etat_ins`,`ac_id`,`etudiant_id`,`classe_id`,`annee_id`) VALUES (?,?,?,?,?);";
         $result =  $db->executeUpdate($sql,[$this->etat,10,17,2,2]);
         $db->closeConnexion();
-        echo $sql;
         return $result;
     }
 

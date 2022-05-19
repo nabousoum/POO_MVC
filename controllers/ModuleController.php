@@ -20,6 +20,7 @@ class ModuleController extends Controller{
         if($this->request->isPost()){
             $module = $this->instance(Module::class,$_POST);
             $module->insert();
+            $this->render('module/creer.html.php');
         }
     }
 

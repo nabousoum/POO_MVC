@@ -24,6 +24,7 @@ class ProfesseurController extends Controller{
         if($this->request->isPost()){
             $prof = $this->instance(Professeur::class,$_POST);
             $prof->insert();
+            $this->render('professeur/creerProf.html.php');
         }
     }
 

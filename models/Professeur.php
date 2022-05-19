@@ -56,7 +56,6 @@ use User;
       $sql="delete from personne where id=?";
      $result = $db->executeUpdate($sql,[$id]);
      $db->closeConnexion();
-     echo $sql;
      return $result;
   }
 
@@ -66,8 +65,11 @@ use User;
     $sql="INSERT INTO `personne` (`nom_complet`,`sexe`,`grade`,`role`) VALUES (?,?,?,?);";
     $result =  $db->executeUpdate($sql,[$this->nomComplet,$this->sexe,$this->grade,parent::$role]);
     $db->closeConnexion();
-    echo $sql;
     return $result;
+    if($result == -1){
+      echo 'error';
+    }
+    else{}
   }
 
    //fonctions

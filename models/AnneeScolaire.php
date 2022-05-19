@@ -86,7 +86,6 @@ class AnneeScolaire extends Model{
         $sql="INSERT INTO ".self::table()." (`libelle`,`etat`) VALUES (?,?);";
         $result =  $db->executeUpdate($sql,[$this->libelle,$this->etat]);
         $db->closeConnexion();
-        echo $sql;
         return $result;
       }
 

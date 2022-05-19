@@ -11,7 +11,7 @@
 </head>
 <body>
 <?php if(!$_SESSION==NULL):?>
-  <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <!-- Container wrapper -->
         <div class="container-fluid">
             <!-- Toggle button -->

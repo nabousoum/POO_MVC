@@ -78,7 +78,6 @@ class Module extends Model{
         $sql="INSERT INTO ".self::table()." (`libelle`,`rp_id`) VALUES (?,?);";
         $result =  $db->executeUpdate($sql,[$this->libelle,$_SESSION['user']->id]);
         $db->closeConnexion();
-        echo $sql;
         return $result;
     }
 

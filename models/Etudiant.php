@@ -72,7 +72,6 @@ class Etudiant extends User{
       $sql="INSERT INTO ".parent::table()." (`nom_complet`,`sexe`,`login`,`password`,`matricule`,`role`,`adresse`) VALUES (?,?,?,?,?,?,?);";
       $result =  $db->executeUpdate($sql,[$this->nomComplet,$this->sexe,$this->login,$this->password,$this->matricule,parent::$role,$this->adresse]);
       $db->closeConnexion();
-      echo $sql;
       return $result;
   }
 

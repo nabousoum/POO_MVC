@@ -117,7 +117,6 @@ class Classe extends Model{
         $sql="INSERT INTO ".self::table()." (`libelle`,`filiere`,`niveau`,`rp_id`) VALUES (?,?,?,?);";
         $result =  $db->executeUpdate($sql,[$this->libelle,$this->filiere,$this->niveau,$_SESSION['user']->id]);
         $db->closeConnexion();
-        echo $sql;
         return $result;
     }
     public static function delete(int $id):int{

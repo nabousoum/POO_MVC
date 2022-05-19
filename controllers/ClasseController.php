@@ -37,6 +37,7 @@ class ClasseController extends Controller{
         if($this->request->isPost()){
             $classe = $this->instance(Classe::class,$_POST);
             $classe->insert();
+            $this->render('classe/creer.html.php');
         }
     }
 
