@@ -1,8 +1,22 @@
 <div class="container mt-5">
     <h1>Liste des Modules</h1>
-    <a class="nav-link" href="<?=$Constantes::WEB_ROOT."add-module"?>">
-        <button type="button" class="btn btn-primary">AJOUTER UNE MODULE</button>
-    </a>
+
+    <form action="" method="POST" role="form">
+        <div class="row">
+            <div class="form-outline">
+                <label class="form-label" for="firstName">Libelle</label>
+                <input type="text" id="firstName" name="libelle" class="form-control form-control-lg" />
+                <input class="btn btn-primary btn-lg" type="submit" value="Ajouter" />  
+            </div>
+        </div>
+    </form>
+    <select class="form-select" aria-label="Default select example">
+        <option selected>---Les professeurs disponibles---</option>
+        <?php foreach($profs as $value) : ?>
+            <option value="<?=$value->id?>"><?= $value->nom_complet ?></option>
+        <?php endforeach?>
+    </select>
+    
     <table class="table table-striped">
         <thead>
             <tr>

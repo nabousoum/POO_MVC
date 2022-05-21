@@ -11,6 +11,13 @@ class ClasseProfesseur extends Model{
     private int $professeur_id;
     private int $classe_id;
     
+
+    public function __construct(?int $classe_id=null,?int $prof_id=null){
+        $this->classe_id = $classe_id;
+        $this->prof_id = $prof_id; 
+    }
+
+
     public static function table()
     {
         return parent::$table="prof_classe";
@@ -89,6 +96,15 @@ class ClasseProfesseur extends Model{
     public function professeurs():array|null{
         $sql="select ...";
         $result = parent::findBy($sql,[$this->id]);
+        return $result;
+    }
+
+    public function insert():int{
+        $db = self::database();
+        $db->connexionBD();
+        $sql="INSERT INTO prof_classe (`classe_id`,`prof_id`) VALUES (?,?);";
+        $result =  $db->executeUpdate($sql,[$this->classe_id,$this->prof_id]);
+        $db->closeConnexion();
         return $result;
     }
     

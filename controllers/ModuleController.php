@@ -5,6 +5,7 @@ use App\Core\Controller;
 use App\Core\Role;
 use App\Model\Classe;
 use App\Model\Module;
+use App\Model\Professeur;
 use Digia\InstanceFactory\InstanceFactory;
 
 class ModuleController extends Controller{
@@ -18,9 +19,9 @@ class ModuleController extends Controller{
             }
         }
         if($this->request->isPost()){
-            $module = $this->instance(Module::class,$_POST);
-            $module->insert();
-            $this->render('module/creer.html.php');
+            // $module = $this->instance(Module::class,$_POST);
+            // $module->insert();
+            // $this->render('module/creer.html.php');
         }
     }
 
@@ -35,13 +36,17 @@ class ModuleController extends Controller{
             }
             else{
                 $modules = Module::findAll();
+                $profs = Professeur::findAll();
                 $this->render('module/listeModule.html.php',$data=[
-                    "modules"=>$modules
+                    "modules"=>$modules,
+                    "profs" =>$profs
                 ]);
             }
         }
         if($this->request->isPost()){
-           
+            $module = $this->instance(Module::class,$_POST);
+            $module->insert();
+            $this->redirectToRoute('liste-module');
         }
     }
 }

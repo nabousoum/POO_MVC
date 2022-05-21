@@ -32,19 +32,19 @@ use App\Core\Role; ?>
                         <li class="nav-item">
                             <a class="nav-link" href="<?=$Constantes::WEB_ROOT."liste-module"?>">
                                 <i class="fa-solid fa-list"></i>
-                                LISTER MODULES
+                                LISTE DES MODULES
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?=$Constantes::WEB_ROOT."classes"?>">
                                 <i class="fa-solid fa-list"></i>
-                                LISTER CLASSES
+                                LISTE DES CLASSES
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?=$Constantes::WEB_ROOT."liste-prof"?>">
                                 <i class="fa-solid fa-list"></i>
-                            LISTER PROFESSEURS
+                            LISTE DES PROFESSEURS
                             </a>
                         </li>
                     </ul>
@@ -64,7 +64,7 @@ use App\Core\Role; ?>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?=$Constantes::WEB_ROOT."add-insc"?>">
+                            <a class="nav-link" href="<?=$Constantes::WEB_ROOT."add-insc    "?>">
                                 <i class="fa-solid fa-list"></i>
                                 INSCRIRE
                             </a>

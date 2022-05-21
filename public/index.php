@@ -5,31 +5,34 @@ use App\Model\User;
 use App\Core\Router;
 use App\Core\Request;
 use App\Exception\RouteNotFoundException;
- ini_set('display_errors', 1);
-  ini_set('display_startup_errors', 1);
-  error_reporting(E_ALL);
+//  ini_set('display_errors', 1);
+//   ini_set('display_startup_errors', 1);
+//   error_reporting(E_ALL);
   require("../vendor/autoload.php");  
 
   require_once("../core/Fonctions.php");
 
   require_once("../routes/Route.web.php");
 
- 
+//   use App\Model\Professeur;
+//   use App\Model\AC;
+// use App\Model\AnneeScolaire;
+// use App\Model\Classe;
+// use App\Model\Demande;
+// use App\Model\Etudiant;
+// use App\Model\Inscription;
+// use App\Model\Module;
+// use App\Model\RP;
+// use App\Model\ModuleProfesseur;
+
+// dd(ModuleProfesseur::filtreProf());
+
 
 /*    $request = new Request;
   dd($request->getUri());
     dd($request->isGet()); */
 
 
-  use App\Model\Professeur;
-  use App\Model\AC;
-use App\Model\AnneeScolaire;
-use App\Model\Classe;
-use App\Model\Demande;
-use App\Model\Etudiant;
-use App\Model\Inscription;
-use App\Model\Module;
-use App\Model\RP;
 
 //dd(Inscription::findByNabou());
 

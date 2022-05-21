@@ -13,6 +13,7 @@ class SecurityController extends Controller{
             $this->render('security/login.html.php');
         }
         if($this->request->isPost()){
+            
            $user_connect = User::findUserByLoginAndPassword($_POST["login"],$_POST["password"]); 
            if ($user_connect != NULL){
                $this->session->setSession('user',$user_connect);

@@ -29,7 +29,7 @@ class Session{
      */ 
     public function getUser()
     {
-        return $this->user;
+        return $_SESSION['user'];
     }
 
     /**
@@ -39,7 +39,7 @@ class Session{
      */ 
     public function setUser($user)
     {
-        $this->user = $user;
+        $_SESSION['user'] = $user;
 
         return $this;
     }
