@@ -1,3 +1,4 @@
+
 <div class="container mt-5">
     <h1>Liste des Modules</h1>
 
@@ -6,7 +7,7 @@
             <div class="form-outline">
                 <label class="form-label" for="firstName">Libelle</label>
                 <input type="text" id="firstName" name="libelle" class="form-control form-control-lg" />
-                <input class="btn btn-primary btn-lg" type="submit" value="Ajouter" />  
+                <input class="btn btn-primary btn-lg" name="submit" type="submit" value="Ajouter" />  
             </div>
         </div>
     </form>

@@ -1,3 +1,10 @@
+
+<?php 
+  if(isset($_POST['submit'])){?>
+      <div class="alert alert-success" role="alert">
+    insertion de la classe reussie
+    </div>
+  <?php } ?>
 <section class="gradient-custom">
   <div class="container py-5 h-100">
     <div class="row justify-content-center align-items-center h-100">
@@ -48,7 +55,7 @@
             
 
               <div class="mt-4 pt-2">
-                <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
+                <input name="submit" class="btn btn-primary btn-lg" type="submit" value="Submit" />
               </div>
 
             </form>

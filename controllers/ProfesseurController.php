@@ -31,25 +31,32 @@ class ProfesseurController extends Controller{
             }
         }
         if($this->request->isPost()){
+
+         
             $prof = $this->instance(Professeur::class,$_POST);
-            $prof->insert();
-            
-
             $id_last_prof = $prof->insert();
-
-            $classe_prof = $this->instance(ClasseProfesseur::class,[
-                'classe_id' =>$_POST['classe'],
-                'prof_id' => $id_last_prof
-            ]);
-            $classe_prof->insert();
-
-            $module_prof = $this->instance(ModuleProfesseur::class,[
-                'module_id' =>$_POST['module'],
-                'prof_id' => $id_last_prof
-            ]);
-            $classe_prof->insert();
             
-            $this->render('professeur/creerProf.html.php');
+            foreach($_POST['classe_id'] as $classe_id){
+                $classe_prof = $this->instance(ClasseProfesseur::class,[
+                    'classe_id' => $classe_id,
+                    'prof_id' => $id_last_prof
+                ]);
+                $classe_prof->insert();
+            }
+
+            foreach($_POST['module_id'] as $module_id){
+                $module_prof = $this->instance(ModuleProfesseur::class,[
+                    'module_id' => $module_id,
+                    'prof_id' => $id_last_prof
+                ]);
+                $module_prof->insert();
+            }   
+            $classes = Classe::findAll();
+                $modules = Module::findAll();
+            $this->render('professeur/creerProf.html.php',$data=[
+                "classes"=>$classes,
+                "modules"=>$modules
+            ]);
         }
     }
 

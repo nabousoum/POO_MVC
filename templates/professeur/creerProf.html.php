@@ -1,4 +1,9 @@
-
+<?php 
+  if(isset($_POST['submit'])){?>
+      <div class="alert alert-success" role="alert">
+    insertion du professeur reussie
+    </div>
+  <?php } ?>
 <section class="gradient-custom">
     <div class="container py-10 h-100">
         <div class="row justify-content-center align-items-center h-100">
@@ -16,11 +21,11 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-4">
-                                    <h3>Affecter classes</h3>
+                                    <h5>Affecter classes</h5>
                                     <?php foreach($classes as $value): ?>
                                         <div class="form-check">
                                             <label class="form-check-label" for="<?=$value->id?>"><?= $value->libelle?></label>
-                                            <input class="form-check-input" type="checkbox" value="<?=$value->id?>" id="<?=$value->id?>">
+                                            <input class="form-check-input" name ="classe_id[]" type="checkbox" value="<?=$value->id?>" id="<?=$value->id?>">
                                         </div>  
                                     <?php endforeach ?>
                                 </div>
@@ -47,11 +52,11 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-4">
-                                    <h3>Affecter modules</h3>
+                                    <h5>Affecter modules</h5>
                                     <?php foreach($modules as $value): ?>
                                         <div class="form-check">
                                             <label class="form-check-label" for="<?=$value->id?>"><?= $value->libelle?></label>
-                                            <input class="form-check-input" type="checkbox" value="<?=$value->id?>" id="<?=$value->id?>">
+                                            <input class="form-check-input" name="module_id[]" type="checkbox" value="<?=$value->id?>" id="<?=$value->id?>">
                                         </div>  
                                     <?php endforeach ?>
                                 </div>
@@ -59,7 +64,7 @@
                            
                           
                             <div class="mt-4 pt-2">
-                                <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
+                                <input class="btn btn-primary btn-lg" name="submit" type="submit" value="Submit" />
                             </div>
 
                         </form>
