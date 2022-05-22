@@ -7,7 +7,25 @@ class Etudiant extends User{
  private string $matricule;
  private string $adresse;
 
+ //$db = self::database();
 
+ public function genererMatricule()
+ {
+    $caracteres = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $longueurMax = strlen($caracteres);
+    $chaineAleatoire = '';
+    for ($i = 0; $i <10; $i++)
+    {
+      $chaineAleatoire .= $caracteres[rand(0, $longueurMax - 1)];
+    }
+    return $chaineAleatoire;
+ }
+
+ public function genererLogin(){
+      $chaine = str_replace(" ","",$this->nomComplet);
+      $login = $chaine."@gmail.com";
+      return $login;
+ }
  public function __construct(?string $nomComplet=null, ?string $sexe=null, ?string $adresse=null)
  {
      self::$role="ROLE_ETUDIANT";
@@ -72,8 +90,8 @@ class Etudiant extends User{
     public function insert():int{
       $db = self::database();
       $db->connexionBD();
-      $sql="INSERT INTO ".parent::table()." (`nom_complet`,`sexe`,`role`,`adresse`) VALUES (?,?,?,?);";
-      $result =  $db->executeUpdate($sql,[$this->nomComplet,$this->sexe,parent::$role,$this->adresse]);
+      $sql="INSERT INTO ".parent::table()." (`nom_complet`,`sexe`,`login`,`password`,`matricule`,`role`,`adresse`) VALUES (?,?,?,?,?,?,?);";
+      $result =  $db->executeUpdate($sql,[$this->nomComplet,$this->sexe,$this->genererLogin(),"pinkie@cademy",$this->genererMatricule(),parent::$role,$this->adresse]);
       $db->closeConnexion();
       return $result;
   }

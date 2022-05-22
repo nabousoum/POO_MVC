@@ -52,10 +52,10 @@ class InscriptionController extends Controller{
 
             $inscription = $this->instance(Inscription::class,[
                 'etudiant_id' =>$id_last_etu,
-                'classe_id' => $_POST['classe']
+                'classe_id' => $_POST['classe_id']
             ]);
             $inscription->insert();
-            $this->redirectToRoute('inscription/creer.html.php');
+            $this->render('inscription/creer.html.php');
 
         }
     }
