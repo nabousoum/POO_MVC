@@ -14,8 +14,9 @@ class SecurityController extends Controller{
         }
         if($this->request->isPost()){
             
-           $user_connect = User::findUserByLoginAndPassword($_POST["login"],$_POST["password"]); 
-           if ($user_connect != NULL){
+           $user_connect = User::findUserByLoginAndPassword($_POST["login"]);
+           //dd($user_connect->password); 
+           if ($user_connect != NULL && password_verify($_POST["password"],$user_connect->password)){
                $this->session->setSession('user',$user_connect);
               // dd($this->session->getSession('user')->role);
                if(Role::isRP()){

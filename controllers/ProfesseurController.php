@@ -80,9 +80,9 @@ class ProfesseurController extends Controller{
             $profs = Professeur::findAll();
             $modules = Module::findAll();
             //dd($data[0]->id);
-            $filtreProfs = ModuleProfesseur::filtreProf($_POST['filtreProf']);
+            $profs = ModuleProfesseur::filtreProf($_POST['filtreProf']);
             $this->render('professeur/listerProf.html.php',$data=[
-                "filtreProfs" => $filtreProfs,
+                "modules" => $modules,
                 "profs"=>$profs,
                 "modules" => $modules
             ]);

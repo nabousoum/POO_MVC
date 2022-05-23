@@ -68,8 +68,8 @@ namespace App\Model;
     }
 
 
-    public static function findUserByLoginAndPassword(string $login,string $password):object|null{
-        return parent::findBy("select * from personne where login=? and password=? ",[$login,$password],true);
+    public static function findUserByLoginAndPassword(string $login):object|null{
+        return parent::findBy("select * from personne where login=? ",[$login],true);
     }
 
 }

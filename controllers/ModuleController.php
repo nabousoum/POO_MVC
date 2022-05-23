@@ -1,27 +1,21 @@
 <?php
 namespace App\Controller;
 
-use App\Core\Controller;
 use App\Core\Role;
 use App\Model\Classe;
 use App\Model\Module;
+use App\Core\Controller;
 use App\Model\Professeur;
+use App\Model\ModuleProfesseur;
 use Digia\InstanceFactory\InstanceFactory;
 
 class ModuleController extends Controller{
     public function ajouterModule(){
-        if($this->request->isGet()){
-            if(!Role::isRP()){
-                $this->redirectToRoute('login');
-            }
-            else{
-                $this->render('module/creer.html.php');
-            }
-        }
         if($this->request->isPost()){
-            // $module = $this->instance(Module::class,$_POST);
-            // $module->insert();
-            // $this->render('module/creer.html.php');
+             
+            $module = $this->instance(Module::class,$_POST);
+            $module->insert();
+            $this->redirectToRoute('liste-module');
         }
     }
 
@@ -44,9 +38,15 @@ class ModuleController extends Controller{
             }
         }
         if($this->request->isPost()){
-            $module = $this->instance(Module::class,$_POST);
-            $module->insert();
-            $this->redirectToRoute('liste-module');
+            $profs = Professeur::findAll();
+            //$modules = Module::findAll();
+            //dd($data[0]->id);
+            $modules = ModuleProfesseur::filtreModule($_POST['filtreModule']);
+            $this->render('module/listeModule.html.php',$data=[
+                "modules" => $modules,
+                "profs"=>$profs,
+                "modules" => $modules
+            ]);
         }
     }
 }

@@ -16,12 +16,61 @@ class DemandeController extends Controller{
             else{
               
                 //dd($data);
-               $demandes = Inscription::demandes($this->session->getSession('user')->id);
+               $demandes = Inscription::demandes();
                 //$data = $this->session->getSession('user')->nom_complet;
                 //dd($data);
                 $this->render('demande/liste.html.php',$data=[
                     "demandes"=>$demandes
                 ]);
+            }
+        }
+        if($this->request->isPost()){
+          
+        }
+    }
+    public function listerAll(){
+        if($this->request->isGet()){
+            if(!Role::isAC()){
+                $this->redirectToRoute('login');
+            }
+            else{
+               $demandes = Inscription::demandeAll();
+                $this->render('demande/listeAll.html.php',$data=[
+                    "demandes"=>$demandes
+                ]);
+            }
+        }
+        if($this->request->isPost()){
+          
+        }
+    }
+    public function listerAllRP(){
+        if($this->request->isGet()){
+            if(!Role::isRP()){
+                $this->redirectToRoute('login');
+            }
+            else{
+               $demandes = Inscription::demandeAllRP();
+               $demandesValide = Inscription::demandeValide();
+               $demandesAnnule = Inscription::demandeAnnule();
+                $this->render('demande/listeAllRP.html.php',$data=[
+                    "demandes"=>$demandes,
+                    "demandesValide"=>$demandesValide,
+                    "demandesAnnule"=>$demandesAnnule
+                ]);
+            }
+        }
+        if($this->request->isPost()){
+          
+        }
+    }
+    public function creer(){
+        if($this->request->isGet()){
+            if(!Role::isEtudiant()){
+                $this->redirectToRoute('login');
+            }
+            else{
+                $this->render('demande/creer.html.php');
             }
         }
         if($this->request->isPost()){

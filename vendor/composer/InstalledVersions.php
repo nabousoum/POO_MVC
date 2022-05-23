@@ -30,7 +30,7 @@ class InstalledVersions
     'aliases' => 
     array (
     ),
-    'reference' => '7426bec9b13d1194856b506fdc94fdc5bb7d47cf',
+    'reference' => '4f8140a99f99736bc2af0c5447e576f294229c5d',
     'name' => 'seynabou/poo_mvc_odc',
   ),
   'versions' => 
@@ -44,6 +44,15 @@ class InstalledVersions
       ),
       'reference' => '8c9b5677df1c9c6f0e57e233c337b88e0f7b1796',
     ),
+    'ircmaxell/password-compat' => 
+    array (
+      'pretty_version' => 'v1.0.4',
+      'version' => '1.0.4.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '5c5cde8822a69545767f7c7f3058cb15ff84614c',
+    ),
     'seynabou/poo_mvc_odc' => 
     array (
       'pretty_version' => 'dev-master',
@@ -51,7 +60,7 @@ class InstalledVersions
       'aliases' => 
       array (
       ),
-      'reference' => '7426bec9b13d1194856b506fdc94fdc5bb7d47cf',
+      'reference' => '4f8140a99f99736bc2af0c5447e576f294229c5d',
     ),
     'symfony/polyfill-ctype' => 
     array (

@@ -9,7 +9,6 @@
             <th scope="col">Sexe</th>
             <th scope="col">Matricule</th>
             <th scope="col">Adresse</th>
-            <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -20,11 +19,6 @@
                 <td><?= $value->sexe ?></td> 
                 <td><?= $value->matricule ?></td>
                 <td><?= $value->adresse ?></td>
-                <td>
-                    <i class="fa fa-edit fa-2x blue"></i>
-                    <i class="fa fa-trash fa-2x red"></i>
-                    <i class="fa-solid fa-circle-info fa-2x green"></i>
-                </td>
             </tr>
             <?php endforeach?>
         </tbody>

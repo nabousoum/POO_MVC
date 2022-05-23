@@ -76,12 +76,50 @@ class Inscription extends Model{
         return parent::findBy($sql,[2],true);
     }
 
-    public static function demandes($id_sess):array{
+    public static function demandes():array{
         $sql="select d.libelle,d.etat_demande from ".self::table()." i, demande  
-            d ,personne p where  i.id=d.inscription_id
+            d ,personne p
+             where i.id=d.inscription_id
+             and p.id = i.etudiant_id
             and p.id=?";
-        return parent::findBy($sql,[$id_sess]);
+        return parent::findBy($sql,[$_SESSION['user']->id]);
     }
+    public static function demandeAll():array{
+        $sql="select p.nom_complet,p.matricule,c.libelle,d.libelle as 'libelledemande',d.etat_demande from ".self::table()." i, demande  
+            d ,personne p, classe c
+             where  i.id=d.inscription_id
+             and i.etudiant_id=p.id
+             and i.classe_id=c.id";
+        return parent::findBy($sql);
+    }
+    public static function demandeAllRP():array{
+        $sql="select p.nom_complet,p.matricule,c.libelle,d.libelle as 'libelledemande',d.etat_demande from ".self::table()." i, demande  
+            d ,personne p, classe c
+             where  i.id=d.inscription_id
+             and i.etudiant_id=p.id
+             and i.classe_id=c.id
+             and d.etat_demande like 'en cours'";
+        return parent::findBy($sql);
+    }
+    public static function demandeAnnule():array{
+        $sql="select p.nom_complet,p.matricule,c.libelle,d.libelle as 'libelledemande',d.etat_demande from ".self::table()." i, demande  
+            d ,personne p, classe c
+             where  i.id=d.inscription_id
+             and i.etudiant_id=p.id
+             and i.classe_id=c.id
+             and d.etat_demande like 'annule'";
+        return parent::findBy($sql);
+    }
+    public static function demandeValide():array{
+        $sql="select p.nom_complet,p.matricule,c.libelle,d.libelle as 'libelledemande',d.etat_demande from ".self::table()." i, demande  
+            d ,personne p, classe c
+             where  i.id=d.inscription_id
+             and i.etudiant_id=p.id
+             and i.classe_id=c.id
+             and d.etat_demande like 'valide'";
+        return parent::findBy($sql);
+    }
+
 
     public function insert():int{
         $db = self::database();
@@ -98,7 +136,8 @@ class Inscription extends Model{
                where i.etudiant_id=p.id
                and i.classe_id=c.id
                and i.annee_id=a.id
-               and p.role='ROLE_ETUDIANT'";
+               and p.role='ROLE_ETUDIANT'
+               and i.etat_ins like 'valide'";
         return parent::findBy($sql);
     }
 }

@@ -30,7 +30,7 @@
             </tr>
         </thead>
         <tbody class="tbody">
-            <?php foreach($filtreProfs as $value) : ?>
+            <?php foreach($profs as $value) : ?>
                 <tr>
                     <td><?= $value->id ?></td>
                     <td><?= $value->nom_complet ?></td>

@@ -1,8 +1,15 @@
 
+<?php
+         if( isset($_POST['filtreModule']))
+        {
+            $module_idP =  $_POST['filtreModule'];
+        }
+?>
+
 <div class="container mt-5">
     <h1>Liste des Modules</h1>
 
-    <form action="" method="POST" role="form">
+    <form action="<?=$Constantes::WEB_ROOT."add-module"?>" method="POST" role="form">
         <div class="row">
             <div class="form-outline">
                 <label class="form-label" for="firstName">Libelle</label>
@@ -11,12 +18,15 @@
             </div>
         </div>
     </form>
-    <select class="form-select" aria-label="Default select example">
-        <option selected>---Les professeurs disponibles---</option>
-        <?php foreach($profs as $value) : ?>
-            <option value="<?=$value->id?>"><?= $value->nom_complet ?></option>
-        <?php endforeach?>
-    </select>
+    <form action="<?=$Constantes::WEB_ROOT."liste-module"?>" method="post">
+        <select class="form-select" name="filtreModule" aria-label="Default select example">
+            <option value="" selected>---Les professeurs disponibles---</option>
+            <?php foreach($profs as $value) : ?>
+                <option value="<?=$value->id?>"><?=$value->nom_complet?></option>
+            <?php endforeach?>
+        </select>
+        <button type="submit" class="btn btn-primary">Rechercher</button>
+    </form>
     
     <table class="table table-striped">
         <thead>

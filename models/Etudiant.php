@@ -6,6 +6,7 @@ class Etudiant extends User{
 
  private string $matricule;
  private string $adresse;
+ //public string $password = "pinkie@cademy";
 
  //$db = self::database();
 
@@ -91,7 +92,7 @@ class Etudiant extends User{
       $db = self::database();
       $db->connexionBD();
       $sql="INSERT INTO ".parent::table()." (`nom_complet`,`sexe`,`login`,`password`,`matricule`,`role`,`adresse`) VALUES (?,?,?,?,?,?,?);";
-      $result =  $db->executeUpdate($sql,[$this->nomComplet,$this->sexe,$this->genererLogin(),"pinkie@cademy",$this->genererMatricule(),parent::$role,$this->adresse]);
+      $result =  $db->executeUpdate($sql,[$this->nomComplet,$this->sexe,$this->genererLogin(),password_hash("pinkie@cademy", PASSWORD_BCRYPT),$this->genererMatricule(),parent::$role,$this->adresse]);
       $db->closeConnexion();
       return $result;
   }

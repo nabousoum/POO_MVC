@@ -10,6 +10,12 @@ class Demande extends Model{
     private string $libelle;
     private string $etat;
 
+    public function __construct(?string $libelle=null,?string $etat=null,?int $inscription_id=null,)
+    {
+        $this->libelle =$libelle;
+        $this->etat = "en cours";
+        $this->inscription_id=$inscription_id;
+    }
     public static function table()
     {
         return parent::$table="demande";
@@ -83,6 +89,7 @@ class Demande extends Model{
         and p.id=?";
         return parent::findBy($sql,[8],true);
     }
+
     public function inscription():object{
         $sql="select i.* from ".self::table()." d,inscription 
         i where  i.id=d.inscription_id
@@ -94,7 +101,7 @@ class Demande extends Model{
         $db = self::database();
         $db->connexionBD();
         $sql="INSERT INTO ".self::table()." (`libelle`,`etat_demande`,`inscription_id`,`rp_id`) VALUES (?,?,?,?);";
-        $result =  $db->executeUpdate($sql,[$this->libelle,$this->etat,2,8]);
+        $result =  $db->executeUpdate($sql,[$this->libelle,$this->etat,$this->inscription_id,$this->etat,$_SESSION['user']->id]);
         $db->closeConnexion();
         return $result;
     }

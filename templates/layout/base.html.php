@@ -47,6 +47,12 @@ use App\Core\Role; ?>
                             LISTE DES PROFESSEURS
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?=$Constantes::WEB_ROOT."liste-all-demandeR"?>">
+                                <i class="fa-solid fa-list"></i>
+                            LISTE DES DEMANDES
+                            </a>
+                        </li>
                     </ul>
                 <?php endif?>
                 <?php if(Role::isAC()):?>
@@ -69,6 +75,12 @@ use App\Core\Role; ?>
                                 INSCRIRE
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?=$Constantes::WEB_ROOT."liste-all-demande"?>">
+                                <i class="fa-solid fa-list"></i>
+                                LISTE DES DEMANDES
+                            </a>
+                        </li>
                         
                     </ul>
                 <?php endif?>
@@ -77,13 +89,13 @@ use App\Core\Role; ?>
                         <li class="nav-item">
                             <a class="nav-link" href="<?=$Constantes::WEB_ROOT."liste-demande"?>">
                                 <i class="fa-solid fa-list"></i>
-                                LISTE DES DEMANDES
+                                LISTER MES DEMANDES
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="<?=$Constantes::WEB_ROOT."add-demande"?>">
                                 <i class="fa-solid fa-list"></i>
-                                FAIRE UNE INSCRIPTION
+                                FAIRE UNE DEMANDE 
                             </a>
                         </li>
                         

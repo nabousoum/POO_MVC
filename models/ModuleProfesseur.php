@@ -92,5 +92,12 @@ class ModuleProfesseur extends Model{
                 m.id = pm.module_id
                 and m.id = ?";
         return parent::findBy($sql,[$prof_idM]);
-    }    
+    }
+    public  static function filtreModule($module_idP):array{
+        $sql = "select m.* from personne p, module m, prof_module pm
+                where p.id = pm.prof_id and
+                m.id = pm.module_id
+                and p.id = ?";
+        return parent::findBy($sql,[$module_idP]);
+    }     
 }
