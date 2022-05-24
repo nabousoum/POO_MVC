@@ -119,6 +119,16 @@ class Classe extends Model{
         $db->closeConnexion();
         return $result;
     }
+
+    public  function update($id):int{
+        $db = self::database();
+        $db->connexionBD();
+        $sql="UPDATE `classe` SET `libelle` = ?, `filiere` = ?, `niveau` = ? WHERE `classe`.`id` = ?";
+        $result =  $db->executeUpdate($sql,[$this->libelle,$this->filiere,$this->niveau,$id]);
+        $db->closeConnexion();
+        //return $result;
+        return 0;
+    }
     // public static function delete(int $id):int{
     //     $sql="delete from '".self::table()."' where id=$id";
     //     echo $sql;
@@ -132,11 +142,11 @@ class Classe extends Model{
        $db->closeConnexion();
        return $result;
     }
-    public static function findById(int $id):object|null{
-        $sql="select * from '".self::table()."' where id=$id";
-        echo $sql;
-      return null;
-    }
+    // public static function findById(int $id):object|null{
+    //     $sql="select * from '".self::table()."' where id=$id";
+    //     echo $sql;
+    //   return null;
+    // }
 
     public function rp():object{
         $sql="select p.* from ".self::table()." c,personne 
@@ -151,5 +161,11 @@ class Classe extends Model{
             i where  c.id=i.classe_id
             and c.id=?";
         return parent::findBy($sql,[1]);
+    }
+
+    public static function findByIdC($id)
+    {
+        $sql="select * from classe where id=?";
+        return parent::findBy($sql,[$id]);
     }
 }

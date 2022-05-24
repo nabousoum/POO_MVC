@@ -62,4 +62,28 @@ class ClasseController extends Controller{
         }
     }
 
+    public function edit(){
+        if($this->request->isGet()){
+            $id =$this->request->query();
+            $id = $id[0];
+            $tabId = explode("=",$id);
+            $id = intVal($tabId[1]);
+            $classe = Classe::findByIdC($id);
+            //dd($classe->libelle);
+            $this->render('classe/edit.html.php',$data=[
+                'id'=>$id,
+                'classe'=>$classe
+            ]);
+        }
+        if($this->request->isPost()){
+            $id =$this->request->query();
+            $id = $id[0];
+            $tabId = explode("=",$id);
+            $id = intVal($tabId[1]);
+            $classe = $this->instance(Classe::class,$_POST);
+            $classe->update($id);
+            $this->redirectToRoute('classes');
+        }
+    }
+
 }

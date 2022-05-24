@@ -5,9 +5,9 @@ use App\Model\User;
 use App\Core\Router;
 use App\Core\Request;
 use App\Exception\RouteNotFoundException;
- ini_set('display_errors', 1);
-  ini_set('display_startup_errors', 1);
-  error_reporting(E_ALL);
+//  ini_set('display_errors', 1);
+//   ini_set('display_startup_errors', 1);
+//   error_reporting(E_ALL);
   require("../vendor/autoload.php");  
 
   require_once("../core/Fonctions.php");
@@ -29,7 +29,7 @@ use App\Exception\RouteNotFoundException;
 // use App\Model\Module;
 // use App\Model\RP;
 // use App\Model\ModuleProfesseur;
-
+// dd(Classe::findByIdC(5));
 // dd(ModuleProfesseur::filtreProf());
 
 

@@ -20,7 +20,7 @@
                 <td><?= $value->filiere ?></td>
                 <td><?= $value->niveau ?></td> 
                 <td>
-                    <a href="#">
+                    <a href="<?=$Constantes::WEB_ROOT."edit-classe/id=$value->id"?>"
                         <i class="fa fa-edit fa-2x blue"> </i>
                     </a>
                     <a href="<?=$Constantes::WEB_ROOT."delete-classe/id=$value->id"?>">

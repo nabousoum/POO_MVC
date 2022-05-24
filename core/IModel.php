@@ -5,7 +5,7 @@ namespace App\Core;
 interface IModel{
     //Abstraites
     //instances
-       public function update():int;
+       public function update(int $id):int;
        public function insert():int;
      //static
      public static function delete(int $id):int;

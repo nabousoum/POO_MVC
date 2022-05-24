@@ -22,7 +22,7 @@ protected static string $role;
   public function insert():int{
       return 0;
   }
-  public function update():int{
+  public  function update($id):int{
     return 0;
   }
   public static function delete(int $id):int{
