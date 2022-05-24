@@ -24,7 +24,7 @@ class ProfesseurController extends Controller{
             else{
                 $classes = Classe::findAll();
                 $modules = Module::findAll();
-                $this->render('professeur/creerProf.html.php',$data=[
+                $this->render('professeur/creer.html.php',$data=[
                     "classes"=>$classes,
                     "modules"=>$modules
                 ]);
@@ -53,7 +53,7 @@ class ProfesseurController extends Controller{
             }   
             $classes = Classe::findAll();
                 $modules = Module::findAll();
-            $this->render('professeur/creerProf.html.php',$data=[
+            $this->render('professeur/creer.html.php',$data=[
                 "classes"=>$classes,
                 "modules"=>$modules
             ]);
@@ -70,7 +70,7 @@ class ProfesseurController extends Controller{
                 $modules = Module::findAll();
                 //dd($data[0]->id);
                 //$filtreProfs = ModuleProfesseur::filtreProf(1);
-                $this->render('professeur/listerProf.html.php',$data=[
+                $this->render('professeur/liste.html.php',$data=[
                     "profs"=>$profs,
                     "modules" => $modules
                 ]);
@@ -81,7 +81,7 @@ class ProfesseurController extends Controller{
             $modules = Module::findAll();
             //dd($data[0]->id);
             $profs = ModuleProfesseur::filtreProf($_POST['filtreProf']);
-            $this->render('professeur/listerProf.html.php',$data=[
+            $this->render('professeur/liste.html.php',$data=[
                 "modules" => $modules,
                 "profs"=>$profs,
                 "modules" => $modules

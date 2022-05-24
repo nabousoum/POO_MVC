@@ -28,6 +28,7 @@
     <?php endforeach?>
     </tbody>
     </table>
+    <br>
 <h2>Les demandes validées</h2>
     <table class="table table-striped">
     <thead>
@@ -51,6 +52,7 @@
     <?php endforeach?>
     </tbody>
     </table>
+    <br>
     <h2>Les demandes annulées</h2>
     <table class="table table-striped">
     <thead>

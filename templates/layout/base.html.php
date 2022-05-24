@@ -11,7 +11,7 @@ use App\Core\Role; ?>
     <link rel="stylesheet" href="<?=$Constantes::WEB_ROOT.'bootstrap/bootstrap.min.css'?>">
 </head>
 <body>
-<?php if(!$_SESSION==NULL):?>
+
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <!-- Container wrapper -->
         <div class="container-fluid">
@@ -114,7 +114,7 @@ use App\Core\Role; ?>
             <!-- Container wrapper -->
     </nav>
     <!-- Navbar -->
-<?php endif?>
+
 
 <?=$contents_for_views?>
 <script src="<?=$Constantes::WEB_ROOT.'bootstrap/bootstrap.bundle.min.js'?>"></script>

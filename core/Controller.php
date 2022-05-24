@@ -4,6 +4,7 @@ namespace App\Core;
 use App\Core\Request;
 class Controller{
 
+    protected string $layout = "base";
     protected Session $session;
     protected Request $request;
     public function __construct(Request $request){
@@ -18,7 +19,7 @@ class Controller{
         extract($data);
         require_once(Constantes::ROOT()."templates/".$path);
         $contents_for_views=ob_get_clean();
-        require_once(Constantes::ROOT()."templates/layout/base.html.php");
+        require_once(Constantes::ROOT()."templates/layout/".$this->layout.".html.php");
     }
 
     public function redirectToRoute($uri){

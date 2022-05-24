@@ -10,6 +10,7 @@ class SecurityController extends Controller{
 
     public function authentification(){
         if($this->request->isGet()){
+            $this->layout = "connexion";
             $this->render('security/login.html.php');
         }
         if($this->request->isPost()){

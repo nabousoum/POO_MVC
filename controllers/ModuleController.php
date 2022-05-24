@@ -31,7 +31,7 @@ class ModuleController extends Controller{
             else{
                 $modules = Module::findAll();
                 $profs = Professeur::findAll();
-                $this->render('module/listeModule.html.php',$data=[
+                $this->render('module/liste.html.php',$data=[
                     "modules"=>$modules,
                     "profs" =>$profs
                 ]);
@@ -42,7 +42,7 @@ class ModuleController extends Controller{
             //$modules = Module::findAll();
             //dd($data[0]->id);
             $modules = ModuleProfesseur::filtreModule($_POST['filtreModule']);
-            $this->render('module/listeModule.html.php',$data=[
+            $this->render('module/liste.html.php',$data=[
                 "modules" => $modules,
                 "profs"=>$profs,
                 "modules" => $modules
