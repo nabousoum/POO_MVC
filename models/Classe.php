@@ -119,10 +119,18 @@ class Classe extends Model{
         $db->closeConnexion();
         return $result;
     }
+    // public static function delete(int $id):int{
+    //     $sql="delete from '".self::table()."' where id=$id";
+    //     echo $sql;
+    //   return 0;
+    // }
     public static function delete(int $id):int{
-        $sql="delete from '".self::table()."' where id=$id";
-        echo $sql;
-      return 0;
+        $db = self::database();
+        $db->connexionBD();
+        $sql="delete from classe where id=?";
+       $result = $db->executeUpdate($sql,[$id]);
+       $db->closeConnexion();
+       return $result;
     }
     public static function findById(int $id):object|null{
         $sql="select * from '".self::table()."' where id=$id";

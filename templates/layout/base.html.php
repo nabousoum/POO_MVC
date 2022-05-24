@@ -1,5 +1,4 @@
-<?php
-use App\Core\Role; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +26,7 @@ use App\Core\Role; ?>
                 <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
                     style="width: 135px;" alt="logo">
                 </a>
-                <?php if(Role::isRP()):?>
+                <?php if($Role::isRP()):?>
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link" href="<?=$Constantes::WEB_ROOT."liste-module"?>">
@@ -55,7 +54,7 @@ use App\Core\Role; ?>
                         </li>
                     </ul>
                 <?php endif?>
-                <?php if(Role::isAC()):?>
+                <?php if($Role::isAC()):?>
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link" href="<?=$Constantes::WEB_ROOT."liste-insc"?>">
@@ -84,7 +83,7 @@ use App\Core\Role; ?>
                         
                     </ul>
                 <?php endif?>
-                <?php if(Role::isEtudiant()):?>
+                <?php if($Role::isEtudiant()):?>
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link" href="<?=$Constantes::WEB_ROOT."liste-demande"?>">

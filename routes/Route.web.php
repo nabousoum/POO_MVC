@@ -29,7 +29,7 @@ $router->route('/add-insc',[InscriptionController::class,"creer"]);
 $router->route('/add-demande',[DemandeController::class,"creer"]);
 $router->route('/liste-all-demande',[DemandeController::class,"listerAll"]);
 $router->route('/liste-all-demandeR',[DemandeController::class,"listerAllRP"]);
-
+$router->route('/delete-classe',[ClasseController::class,"delete"]);
 
 
 

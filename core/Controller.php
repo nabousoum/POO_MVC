@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Core;
+use App\Core\Role;
 use App\Core\Request;
+
 class Controller{
 
     protected string $layout = "base";
@@ -14,6 +16,7 @@ class Controller{
 
     public function render(string $path, array $data=[] ){
         $data["Constantes"]=Constantes::class;
+        $data["Role"]=Role::class;
        // $data["request"]=$this->request;
         ob_start();
         extract($data);

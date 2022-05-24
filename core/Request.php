@@ -13,4 +13,10 @@ class Request{
     public function isPost():bool{
         return $_SERVER['REQUEST_METHOD']=="POST";
     }
+
+    function query(){
+        $uri=$this->getUri();
+        unset($uri[0]);
+        return array_values($uri);
+    }
 }

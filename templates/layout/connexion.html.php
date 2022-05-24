@@ -1,5 +1,4 @@
-<?php
-use App\Core\Role; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -42,4 +42,24 @@ class ClasseController extends Controller{
         }
     }
 
+    public function delete(){
+        if($this->request->isGet()){
+            $id =$this->request->query();
+            //$id = intval($id);
+            $id = $id[0];
+            $tabId = explode("=",$id);
+            $id = intVal($tabId[1]);
+            Classe::delete($id);
+            //$this->redirectToRoute('classes');
+            $classes = Classe::findAll();
+            $this->render('classe/liste.html.php',$data=[
+                'id'=>$id,
+                "classes"=>$classes
+            ]);
+        }
+        if($this->request->isPost()){
+            
+        }
+    }
+
 }
