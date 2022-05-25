@@ -1,4 +1,11 @@
 <?php 
+if(isset($_SESSION['errors'])){
+    $errors=$_SESSION['errors'];
+    unset($_SESSION['errors']);
+   }
+?>
+
+<?php 
   if(isset($_POST['submit'])){?>
       <div class="alert alert-success" role="alert">
     insertion de la module reussie
@@ -23,9 +30,6 @@
                 </div>
 
               </div>
-
-
-
               <div class="mt-4 pt-2">
                 <input class="btn btn-primary btn-lg" name="submit" type="submit" value="Submit" />
               </div>

@@ -1,4 +1,10 @@
 
+<?php 
+    if(isset($_SESSION['errors'])){
+    $errors=$_SESSION['errors'];
+    unset($_SESSION['errors']);
+   }
+?>
 <?php
          if( isset($_POST['filtreModule']))
         {
@@ -14,9 +20,12 @@
             <div class="form-outline">
                 <label class="form-label" for="firstName">Libelle</label>
                 <input type="text" id="firstName" name="libelle" class="form-control form-control-lg" />
-                <input class="btn btn-primary btn-lg" name="submit" type="submit" value="Ajouter" />  
+                <?php if(isset($errors)): ?>
+                    <small style="color:red"> <?= $errors; ?> </small>
+                <?php endif ?><br>
+                <input class="btn btn-primary btn-lg" name="submit" type="submit" value="Ajouter" />  <br>  
             </div>
-        </div>
+        </div><br>
     </form>
     <form action="<?=$Constantes::WEB_ROOT."liste-module"?>" method="post">
         <select class="form-select" name="filtreModule" aria-label="Default select example">
@@ -33,7 +42,6 @@
             <tr>
             <th scope="col">ID</th>
             <th scope="col">Libelle</th>
-            <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -41,11 +49,6 @@
             <tr>
                 <td><?= $value->id ?></td>
                 <td><?= $value->libelle ?></td>
-                <td>
-                    <i class="fa fa-edit fa-2x blue"></i>
-                    <i class="fa fa-trash fa-2x red"></i>
-                    <i class="fa-solid fa-circle-info fa-2x green"></i>
-                </td>
             </tr>
             <?php endforeach?>
         </tbody>

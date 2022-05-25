@@ -1,10 +1,15 @@
-
+<?php 
+if(isset($_SESSION['errors'])){
+    $errors=$_SESSION['errors'];
+    unset($_SESSION['errors']);
+   }
+?>
 <?php 
   if(isset($_POST['submit'])){?>
       <div class="alert alert-success" role="alert">
     insertion de la classe reussie
     </div>
-  <?php } ?>
+<?php } ?>
 <section class="gradient-custom">
   <div class="container py-5 h-100">
     <div class="row justify-content-center align-items-center h-100">
@@ -15,49 +20,36 @@
            <form action="" method="POST" role="form">
               <div class="row">
                 <div class="col-md-6 mb-4">
-
                   <div class="form-outline">
-                    <input type="text" id="firstName" name="libelle" class="form-control form-control-lg" />
                     <label class="form-label" for="firstName">Libelle</label>
+                    <input type="text" id="firstName" name="libelle" class="form-control form-control-lg" />
+                    <small></small>
                   </div>
-
                 </div>
-
               </div>
-
-
               <div class="row">
                 <div class="col-md-6 mb-4 pb-2">
-
                   <div class="form-outline">
-                    <input type="text" id="emailAddress" name="filiere" class="form-control form-control-lg" />
                     <label class="form-label" for="emailAddress">Filiere</label>
+                    <input type="text" id="emailAddress" name="filiere" class="form-control form-control-lg" />
+                    <?php if(isset($errors)): ?>
+                      <small style="color:red"> <?= $errors; ?> </small>
+                    <?php endif ?><br>
                   </div>
-
                 </div>
-               
               </div>
-        
-               
-
               <div class="row">
                 <div class="col-md-6 mb-4 pb-2">
-
                   <div class="form-outline">
-                    <input type="text" id="emailAddress" name="niveau" class="form-control form-control-lg" />
                     <label class="form-label" for="emailAddress">Niveau</label>
+                    <input type="text" id="emailAddress" name="niveau" class="form-control form-control-lg" />
+                    <small></small>
                   </div>
-
                 </div>
-               
               </div>
-
-            
-
               <div class="mt-4 pt-2">
                 <input name="submit" class="btn btn-primary btn-lg" type="submit" value="Submit" />
               </div>
-
             </form>
           </div>
         </div>

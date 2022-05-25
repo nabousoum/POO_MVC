@@ -8,14 +8,29 @@ use App\Core\Controller;
 use App\Model\Professeur;
 use App\Model\ModuleProfesseur;
 use Digia\InstanceFactory\InstanceFactory;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Validation;
 
 class ModuleController extends Controller{
     public function ajouterModule(){
         if($this->request->isPost()){
              
-            $module = $this->instance(Module::class,$_POST);
-            $module->insert();
-            $this->redirectToRoute('liste-module');
+            $module = $this->instance(Module::class,$_POST);$validator = Validation::createValidator();
+            $violations = $validator->validate($_POST['libelle'], [
+                new NotBlank(),
+            ]);
+            if (0 !== count($violations)) {
+                foreach ($violations as $violation) {
+                    //dd($violation->getMessage());
+                     $this->session->setSession('errors', $violation->getMessage());
+                     $this->redirectToRoute('liste-module');
+                }
+            }
+            else{
+                $module->insert();
+                $this->redirectToRoute('liste-module');
+            }
         }
     }
 
