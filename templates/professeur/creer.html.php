@@ -22,12 +22,11 @@
                                 </div>
                                 <div class="col-md-6 mb-4">
                                     <h5>Affecter classes</h5>
-                                    <?php foreach($classes as $value): ?>
-                                        <div class="form-check">
-                                            <label class="form-check-label" for="<?=$value->id?>"><?= $value->libelle?></label>
-                                            <input class="form-check-input" name ="classe_id[]" type="checkbox" value="<?=$value->id?>" id="<?=$value->id?>">
-                                        </div>  
-                                    <?php endforeach ?>
+                                        <select class="select selectpicker" name ="classe_id[]" multiple data-mb-placeholder="Example placeholder" data-live-search="true">
+                                        <?php foreach($classes as $value): ?>
+                                            <option value="<?=$value->id?>"><?=$value->libelle?></option>
+                                            <?php endforeach ?>
+                                        </select>
                                 </div>
                             </div>
                             <div class="row">
@@ -53,12 +52,11 @@
                                 </div>
                                 <div class="col-md-6 mb-4">
                                     <h5>Affecter modules</h5>
-                                    <?php foreach($modules as $value): ?>
-                                        <div class="form-check">
-                                            <label class="form-check-label" for="<?=$value->id?>"><?= $value->libelle?></label>
-                                            <input class="form-check-input" name="module_id[]" type="checkbox" value="<?=$value->id?>" id="<?=$value->id?>">
-                                        </div>  
-                                    <?php endforeach ?>
+                                    <select class="select selectpicker" name="module_id[]" multiple >
+                                        <?php foreach($modules as $value): ?>
+                                            <option value="<?=$value->id?>"><?=$value->libelle?></option>
+                                            <?php endforeach ?>
+                                        </select>
                                 </div>
                             </div>
                    

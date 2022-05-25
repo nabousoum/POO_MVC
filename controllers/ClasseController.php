@@ -35,7 +35,16 @@ class ClasseController extends Controller{
                 $this->redirectToRoute('login');
             }
             else{
-                $this->render('classe/creer.html.php');
+                $classe = [
+                    "id" => 0,
+                    "libelle" => "",
+                    "filiere" =>"",
+                    "niveau"=>""
+                ];
+                $this->render('classe/creer.html.php',$data=[
+                    "classe" => $classe,
+                    'titre' => "AJOUTER CLASSE"
+                ]);
             }
         }
         if($this->request->isPost()){
@@ -79,11 +88,13 @@ class ClasseController extends Controller{
             $id = $id[0];
             $tabId = explode("=",$id);
             $id = intVal($tabId[1]);
-            $classe = Classe::findByIdC($id);
-            //dd($classe->libelle);
-            $this->render('classe/edit.html.php',$data=[
+            $test = Classe::findByIdC($id);
+            $classe = json_decode(json_encode($test),true);
+            $classe=$classe[0];
+            $this->render('classe/creer.html.php',$data=[
                 'id'=>$id,
-                'classe'=>$classe
+                'classe'=>$classe,
+                'titre' => "MODIFIER CLASSE"
             ]);
         }
         if($this->request->isPost()){

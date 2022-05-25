@@ -16,13 +16,13 @@ if(isset($_SESSION['errors'])){
       <div class="col-12 col-lg-9 col-xl-7">
         <div class="card shadow-2-strong card-registration" style="border-radius: 50px; border-color:pink; box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px; ">
           <div class="card-body p-4 p-md-5">
-            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">AJOUT CLASSE</h3>
+            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5"><?=$data['titre']?></h3>
            <form action="" method="POST" role="form">
               <div class="row">
                 <div class="col-md-6 mb-4">
                   <div class="form-outline">
                     <label class="form-label" for="firstName">Libelle</label>
-                    <input type="text" id="firstName" name="libelle" class="form-control form-control-lg" />
+                    <input type="text" value ="<?=$classe['libelle']?>"  id="firstName" name="libelle" class="form-control form-control-lg" />
                     <small></small>
                   </div>
                 </div>
@@ -31,7 +31,7 @@ if(isset($_SESSION['errors'])){
                 <div class="col-md-6 mb-4 pb-2">
                   <div class="form-outline">
                     <label class="form-label" for="emailAddress">Filiere</label>
-                    <input type="text" id="emailAddress" name="filiere" class="form-control form-control-lg" />
+                    <input type="text" value ="<?=$classe['filiere']?>" id="emailAddress" name="filiere" class="form-control form-control-lg" />
                     <?php if(isset($errors)): ?>
                       <small style="color:red"> <?= $errors; ?> </small>
                     <?php endif ?><br>
@@ -42,7 +42,7 @@ if(isset($_SESSION['errors'])){
                 <div class="col-md-6 mb-4 pb-2">
                   <div class="form-outline">
                     <label class="form-label" for="emailAddress">Niveau</label>
-                    <input type="text" id="emailAddress" name="niveau" class="form-control form-control-lg" />
+                    <input type="text" value ="<?=$classe['niveau']?>" id="emailAddress" name="niveau" class="form-control form-control-lg" />
                     <small></small>
                   </div>
                 </div>

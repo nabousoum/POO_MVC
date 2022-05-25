@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
     <link rel="stylesheet" href="<?=$Constantes::WEB_ROOT.'css/login.style.css'?>">
     <link rel="stylesheet" href="<?=$Constantes::WEB_ROOT.'bootstrap/bootstrap.min.css'?>">
+    <link rel="stylesheet" href="<?=$Constantes::WEB_ROOT.'bootstrap/bootstrap-select.min.css'?>">
+
 </head>
 <body>
 
@@ -116,6 +118,9 @@
 
 
 <?=$contents_for_views?>
+<script src="<?=$Constantes::WEB_ROOT.'bootstrap/jquery.min.js'?>"></script>
 <script src="<?=$Constantes::WEB_ROOT.'bootstrap/bootstrap.bundle.min.js'?>"></script>
+<script src="<?=$Constantes::WEB_ROOT.'bootstrap/bootstrap-select.min.js'?>"></script>
+
 </body>
 </html>

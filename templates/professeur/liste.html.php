@@ -26,6 +26,7 @@
             <th scope="col">Nom complet</th>
             <th scope="col">Sexe</th>
             <th scope="col">Grade</th>
+            <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody class="tbody">
@@ -35,6 +36,9 @@
                     <td><?= $value->nom_complet ?></td>
                     <td><?= $value->sexe ?></td> 
                     <td><?= $value->grade ?></td>
+                    <td>                  
+                        <button type="button" class="btn btn-outline-info">Affecter classe</button>
+                    </td>
                 </tr>
             <?php endforeach?>
         </tbody>
