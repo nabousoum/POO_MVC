@@ -41,10 +41,9 @@
         <?php if ($currentPage > 1): ?>
             <a href="<?=$Constantes::WEB_ROOT."classes"?>/?page=<?= $currentPage - 1 ?>" class="btn btn-outline-primary">&laquo; Page Precedente</a>
         <?php endif ?> 
-   </div>
-   <div class="d-flex justify-content-between my-4">
+        
         <?php if ($currentPage < $pages ): ?>
-            <a href="<?=$Constantes::WEB_ROOT."classes"?>/?page=<?= $currentPage + 1 ?>" class="btn btn-outline-primary"> Page Suivante &raquo;</a>
+            <a href="<?=$Constantes::WEB_ROOT."classes"?>/?page=<?= $currentPage + 1 ?>" class="btn btn-outline-primary ml-auto"> Page Suivante &raquo;</a>
         <?php endif ?> 
    </div>
 </div>

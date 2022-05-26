@@ -43,7 +43,15 @@
             <?php endforeach?>
         </tbody>
     </table>
-
+    <div class="d-flex justify-content-between my-4">
+        <?php if ($currentPage > 1): ?>
+            <a href="<?=$Constantes::WEB_ROOT."liste-prof"?>/?page=<?= $currentPage - 1 ?>" class="btn btn-outline-primary">&laquo; Page Precedente</a>
+        <?php endif ?> 
+        
+        <?php if ($currentPage < $pages ): ?>
+            <a href="<?=$Constantes::WEB_ROOT."liste-prof"?>/?page=<?= $currentPage + 1 ?>" class="btn btn-outline-primary ml-auto"> Page Suivante &raquo;</a>
+        <?php endif ?> 
+   </div>
 </div>
 <script src="<?=$Constantes::WEB_ROOT.'js/listeProf.script.js'?>"></script>
 

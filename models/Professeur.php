@@ -76,6 +76,10 @@ use User;
    public function rp():RP{
     return new RP();
    }
-
+   public static function findTest(int $offset):array{
+     
+    $sql="select * from personne where role like 'ROLE_PROFESSEUR' order by id desc LIMIT 5 OFFSET $offset ";
+    return self::findBy($sql);
+  }
 
 }

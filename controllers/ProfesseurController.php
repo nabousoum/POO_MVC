@@ -66,13 +66,29 @@ class ProfesseurController extends Controller{
                 $this->redirectToRoute('login');
             }
             else{
-                $profs = Professeur::findAll();
+                $currentPage = (int) ($_GET['page'] ?? 1);
+                if($currentPage <= 0){
+                   $currentPage = 1;
+                } 
+                $totalPages = count(Professeur::findAll());
+               
+                //dd($currentPage);
+                $perPage = 5;
+                $pages = ceil($totalPages / $perPage);
+                if($currentPage > $pages || $currentPage<=0){
+                    $currentPage = 1;
+                } 
+                $offset = $perPage * ($currentPage - 1);
+                //$classes = Classe::findTest($offset);
+                $profs = Professeur::findTest($offset);
                 $modules = Module::findAll();
                 //dd($data[0]->id);
                 //$filtreProfs = ModuleProfesseur::filtreProf(1);
                 $this->render('professeur/liste.html.php',$data=[
                     "profs"=>$profs,
-                    "modules" => $modules
+                    "modules" => $modules,
+                    "currentPage"=>$currentPage,
+                    "pages" => $pages
                 ]);
             }
         }

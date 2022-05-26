@@ -32,4 +32,21 @@ class Controller{
     public function instance(string $class, array $data){
        return $classe = \Digia\InstanceFactory\InstanceFactory::fromProperties($class, $data);
     }
+
+    public function paginer(string $classe){
+        $currentPage = (int) ($_GET['page'] ?? 1);
+        if($currentPage <= 0){
+           $currentPage = 1;
+        } 
+        $totalPages = count($classe::findAll());
+       
+        //dd($currentPage);
+        $perPage = 5;
+        $pages = ceil($totalPages / $perPage);
+        if($currentPage > $pages || $currentPage<=0){
+            $currentPage = 1;
+        } 
+        $offset = $perPage * ($currentPage - 1);
+        $classes = $classe::findTest($offset);
+    }
 }
