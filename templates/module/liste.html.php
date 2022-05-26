@@ -19,7 +19,7 @@
         <div class="row">
             <div class="form-outline">
                 <label class="form-label" for="firstName">Libelle</label>
-                <input type="text" id="firstName" name="libelle" class="form-control form-control-lg" />
+                <input  type="text" id="firstName" name="libelle" class="form-control form-control-lg w-50" />
                 <?php if(isset($errors)): ?>
                     <small style="color:red"> <?= $errors; ?> </small>
                 <?php endif ?><br>
@@ -28,7 +28,7 @@
         </div><br>
     </form>
     <form action="<?=$Constantes::WEB_ROOT."liste-module"?>" method="post">
-        <select class="form-select" name="filtreModule" aria-label="Default select example">
+        <select class="form-select w-50" name="filtreModule" aria-label="Default select example">
             <option value="" selected>---Les professeurs disponibles---</option>
             <?php foreach($profs as $value) : ?>
                 <option value="<?=$value->id?>"><?=$value->nom_complet?></option>
@@ -53,7 +53,15 @@
             <?php endforeach?>
         </tbody>
     </table>
-
+    <div class="d-flex justify-content-between my-4">
+        <?php if ($currentPage > 1): ?>
+            <a href="<?=$Constantes::WEB_ROOT."liste-module"?>/?page=<?= $currentPage - 1 ?>" class="btn btn-outline-primary">&laquo; Page Precedente</a>
+        <?php endif ?> 
+        
+        <?php if ($currentPage < $pages ): ?>
+            <a href="<?=$Constantes::WEB_ROOT."liste-module"?>/?page=<?= $currentPage + 1 ?>" class="btn btn-outline-primary ml-auto"> Page Suivante &raquo;</a>
+        <?php endif ?> 
+   </div>
 </div>
 
 

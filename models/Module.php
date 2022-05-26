@@ -80,5 +80,10 @@ class Module extends Model{
         $db->closeConnexion();
         return $result;
     }
+    public static function findTest(int $offset):array{
+     
+        $sql="select * from `".get_called_class()::table()."` order by id desc LIMIT 5 OFFSET $offset ";
+        return self::findBy($sql);
+    }
 
 }

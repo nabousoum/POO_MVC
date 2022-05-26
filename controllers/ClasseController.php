@@ -60,9 +60,10 @@ class ClasseController extends Controller{
         if($this->request->isPost()){
             $classe = $this->instance(Classe::class,$_POST);
             $validator = Validation::createValidator();
-            $violations = $validator->validate($_POST['filiere'],[
-                new NotBlank(),
-            ]);
+            $violations = $validator->validate($_POST['libelle'],new NotBlank());
+            $violations = $validator->validate($_POST['filiere'],new NotBlank());
+            $violations = $validator->validate($_POST['niveau'],new NotBlank());
+           // dd($violations);
             if (0 !== count($violations)) {
                 foreach ($violations as $violation) {
                     //dd($violation->getMessage());

@@ -3,14 +3,23 @@
 namespace App\Model;
 
 use App\Core\Model;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 class Classe extends Model{
 
     //attributs
 
+
     private int $id;
+
+    /**
+     * @Assert\NotBlank(message="le libelle ne doit pas etre vide")
+     */
     private string $libelle;
+
     private string $filiere;
+
     private string $niveau;
 
     //getters and setters

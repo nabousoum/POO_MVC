@@ -23,7 +23,9 @@ if(isset($_SESSION['errors'])){
                   <div class="form-outline">
                     <label class="form-label" for="firstName">Libelle</label>
                     <input type="text" value ="<?= isset($classe->libelle)?$classe->libelle:""?>"  id="firstName" name="libelle" class="form-control form-control-lg" />
-                    <small></small>
+                    <?php if(isset($errors)): ?>
+                      <small style="color:red"> <?= $errors; ?> </small>
+                    <?php endif ?><br>
                   </div>
                 </div>
               </div>
@@ -43,7 +45,9 @@ if(isset($_SESSION['errors'])){
                   <div class="form-outline">
                     <label class="form-label" for="emailAddress">Niveau</label>
                     <input type="text" value ="<?= isset($classe->niveau)?$classe->niveau:""?>" id="emailAddress" name="niveau" class="form-control form-control-lg" />
-                    <small></small>
+                    <?php if(isset($errors)): ?>
+                      <small style="color:red"> <?= $errors; ?> </small>
+                    <?php endif ?><br>
                   </div>
                 </div>
               </div>

@@ -7,18 +7,29 @@
 
 <div class="container mt-5">
     <h1>Liste des Professeurs</h1>
+    <br>
     <a class="nav-link" href="<?=$Constantes::WEB_ROOT."add-prof"?>">
         <button type="button" class="btn btn-primary">AJOUTER UN PROFESSEUR</button>
     </a>
+    <br><br>
     <form action="<?=$Constantes::WEB_ROOT."liste-prof"?>" method="post">
-        <select class="form-select" name="filtreProf" aria-label="Default select example">
-            <option value="" selected>---Les modules disponibles---</option>
-            <?php foreach($modules as $value) : ?>
-                <option value="<?=$value->id?>"><?=$value->libelle?></option>
-            <?php endforeach?>
-        </select>
-        <button type="submit" class="btn btn-primary">Rechercher</button>
+        <div class="row">
+            <div class="col">
+                <select class="form-select w-50" name="filtreProf" aria-label="Default select example">
+                <option value="" selected>---Les modules disponibles---</option>
+                <?php foreach($modules as $value) : ?>
+                    <option value="<?=$value->id?>"><?=$value->libelle?></option>
+                <?php endforeach?>
+                </select>
+            </div>
+            <div class="col">
+                <button type="submit" class="btn btn-primary">Rechercher</button>
+            </div>
+        </div>
+       
+      
     </form>
+    <br><br>
     <table class="table table-striped">
         <thead>
             <tr>

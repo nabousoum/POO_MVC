@@ -44,11 +44,26 @@ class ModuleController extends Controller{
                 $this->redirectToRoute('login');
             }
             else{
-                $modules = Module::findAll();
+                $currentPage = (int) ($_GET['page'] ?? 1);
+                if($currentPage <= 0){
+                   $currentPage = 1;
+                } 
+                $totalPages = count(Module::findAll());
+               
+                //dd($currentPage);
+                $perPage = 5;
+                $pages = ceil($totalPages / $perPage);
+                if($currentPage > $pages || $currentPage<=0){
+                    $currentPage = 1;
+                } 
+                $offset = $perPage * ($currentPage - 1);
+                $modules = Module::findTest($offset);
                 $profs = Professeur::findAll();
                 $this->render('module/liste.html.php',$data=[
                     "modules"=>$modules,
-                    "profs" =>$profs
+                    "profs" =>$profs,
+                    "currentPage"=>$currentPage,
+                    "pages" => $pages
                 ]);
             }
         }
