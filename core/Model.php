@@ -37,7 +37,7 @@ protected static string $role;
   }
   public static function findAll():array{
      
-      $sql="select * from ".get_called_class()::table();
+      $sql="select * from `".get_called_class()::table()."` order by id desc";
       return self::findBy($sql);
   }
   public static function findById(int $id):object|null

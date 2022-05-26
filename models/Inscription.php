@@ -116,7 +116,7 @@ class Inscription extends Model{
              where  i.id=d.inscription_id
              and i.etudiant_id=p.id
              and i.classe_id=c.id
-             and d.etat_demande like 'valide'";
+             and d.etat_demande like 'valide' ";
         return parent::findBy($sql);
     }
 
@@ -137,7 +137,7 @@ class Inscription extends Model{
                and i.classe_id=c.id
                and i.annee_id=a.id
                and p.role='ROLE_ETUDIANT'
-               and i.etat_ins like 'valide'";
+               and i.etat_ins like 'en cours'";
         return parent::findBy($sql);
     }
 }

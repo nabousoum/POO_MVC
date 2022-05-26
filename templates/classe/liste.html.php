@@ -20,17 +20,37 @@
                 <td><?= $value->filiere ?></td>
                 <td><?= $value->niveau ?></td> 
                 <td>
-                    <div>
-                    <a href="<?=$Constantes::WEB_ROOT."edit-classe/id=$value->id"?>"
-                    <button type="button" class="btn btn-outline-warning">Modifier</button>
-                    </a>
-                    <form action="<?=$Constantes::WEB_ROOT."delete-classe"?>" method="post">
-                        <input type="hidden" name="id" value="<?=$value->id?>">
-                        <button type="submit" class="btn btn-outline-danger">Supprimer</button>
-                    </form>
-
-                    </div>
-                   
+                <div>
+                        <div class="btn">
+                            <a href="<?=$Constantes::WEB_ROOT."edit-classe/id=$value->id"?>"
+                            <button type="button" class="btn btn-warning">Modifier</button>
+                            </a>
+                        </div>
+                       
+                            <a href="#myModal" class="trigger-btn" data-toggle="modal">
+                                <button type="submit" class="btn btn-danger">Supprimer</button>
+                            </a>
+                            <div id="myModal" class="modal fade">
+                                <div class="modal-dialog modal-confirm">
+                                    <div class="modal-content">
+                                        <div class="modal-header flex-column">					
+                                            <h4 class="modal-title w-100">Are you sure?</h4>	
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Etes vous sure de vouloir supprimer la classe <?=$value->libelle?></p>
+                                        </div>
+                                        <div class="modal-footer justify-content-center">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                            <form class="btn" action="<?=$Constantes::WEB_ROOT."delete-classe"?>" method="post">
+                                                <input type="hidden" name="id" value="<?=$value->id?>">
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+                    </div>                   
                 </td>
             </tr>
             <?php endforeach?>
@@ -40,4 +60,3 @@
 </div>
 
 
-    

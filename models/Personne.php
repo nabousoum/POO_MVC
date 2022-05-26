@@ -65,7 +65,7 @@ use App\Core\Model;
 
  
     public static function findAll():array{
-        $sql="select * from ".self::table()." where role  like ? ";
+        $sql="select * from ".self::table()." where role  like ?  order by id desc  ";
         return parent::findBy($sql,[get_called_class()::role()]);
     }
    
