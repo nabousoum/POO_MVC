@@ -3,12 +3,13 @@ namespace App\Controller;
 
 use App\Core\Role;
 use App\Model\Classe;
+use App\Core\Constantes;
 use App\Core\Controller;
 use App\Model\Inscription;
 use Digia\InstanceFactory\InstanceFactory;
+use Symfony\Component\Validator\Validation;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\Validator\Validation;
 
 class ClasseController extends Controller{
     public function listerClasse(){
@@ -35,15 +36,9 @@ class ClasseController extends Controller{
                 $this->redirectToRoute('login');
             }
             else{
-                $classe = [
-                    "id" => 0,
-                    "libelle" => "",
-                    "filiere" =>"",
-                    "niveau"=>""
-                ];
                 $this->render('classe/creer.html.php',$data=[
-                    "classe" => $classe,
-                    'titre' => "AJOUTER CLASSE"
+                    'titre' => "AJOUTER CLASSE",
+                    'action' => Constantes::WEB_ROOT."add-classe",
                 ]);
             }
         }
@@ -68,12 +63,8 @@ class ClasseController extends Controller{
     }
 
     public function delete(){
-        if($this->request->isGet()){
-            $id =$this->request->query();
-            //$id = intval($id);
-            $id = $id[0];
-            $tabId = explode("=",$id);
-            $id = intVal($tabId[1]);
+        if($this->request->isPost()){
+            $id =(int) $_POST['id'];
             Classe::delete($id);
             $this->redirectToRoute('classes');
         }
@@ -84,16 +75,15 @@ class ClasseController extends Controller{
 
     public function edit(){
         if($this->request->isGet()){
-            $id =$this->request->query();
+           $id =$this->request->query();
             $id = $id[0];
             $tabId = explode("=",$id);
             $id = intVal($tabId[1]);
-            $test = Classe::findByIdC($id);
-            $classe = json_decode(json_encode($test),true);
-            $classe=$classe[0];
+            $classe = Classe::findByIdC($id);
             $this->render('classe/creer.html.php',$data=[
                 'id'=>$id,
-                'classe'=>$classe,
+                'classe'=>$classe[0],
+                'action' => Constantes::WEB_ROOT."edit-classe/".$classe[0]->id,
                 'titre' => "MODIFIER CLASSE"
             ]);
         }

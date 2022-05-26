@@ -20,12 +20,17 @@
                 <td><?= $value->filiere ?></td>
                 <td><?= $value->niveau ?></td> 
                 <td>
+                    <div>
                     <a href="<?=$Constantes::WEB_ROOT."edit-classe/id=$value->id"?>"
-                        <i class="fa fa-edit fa-2x blue"> </i>
+                    <button type="button" class="btn btn-outline-warning">Modifier</button>
                     </a>
-                    <a href="<?=$Constantes::WEB_ROOT."delete-classe/id=$value->id"?>">
-                        <i class="fa fa-trash fa-2x red"></i>
-                    </a>
+                    <form action="<?=$Constantes::WEB_ROOT."delete-classe"?>" method="post">
+                        <input type="hidden" name="id" value="<?=$value->id?>">
+                        <button type="submit" class="btn btn-outline-danger">Supprimer</button>
+                    </form>
+
+                    </div>
+                   
                 </td>
             </tr>
             <?php endforeach?>
