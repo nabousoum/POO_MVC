@@ -168,4 +168,9 @@ class Classe extends Model{
         $sql="select * from classe where id=?";
         return parent::findBy($sql,[$id]);
     }
+    public static function findTest(int $offset):array{
+     
+        $sql="select * from `".get_called_class()::table()."` order by id desc LIMIT 5 OFFSET $offset ";
+        return self::findBy($sql);
+    }
 }

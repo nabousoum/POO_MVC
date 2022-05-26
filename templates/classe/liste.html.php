@@ -1,4 +1,3 @@
-
 <div class="container mt-5">
     <h1>Liste des Classes</h1>
     <a class="nav-link" href="<?=$Constantes::WEB_ROOT."add-classe"?>">
@@ -26,37 +25,34 @@
                             <button type="button" class="btn btn-warning">Modifier</button>
                             </a>
                         </div>
-                       
-                            <a href="#myModal" class="trigger-btn" data-toggle="modal">
-                                <button type="submit" class="btn btn-danger">Supprimer</button>
-                            </a>
-                            <div id="myModal" class="modal fade">
-                                <div class="modal-dialog modal-confirm">
-                                    <div class="modal-content">
-                                        <div class="modal-header flex-column">					
-                                            <h4 class="modal-title w-100">Are you sure?</h4>	
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p>Etes vous sure de vouloir supprimer la classe <?=$value->libelle?></p>
-                                        </div>
-                                        <div class="modal-footer justify-content-center">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                            <form class="btn" action="<?=$Constantes::WEB_ROOT."delete-classe"?>" method="post">
-                                                <input type="hidden" name="id" value="<?=$value->id?>">
-                                                <button type="submit" class="btn btn-danger">Delete</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>  
+                        <form class="btn" action="<?=$Constantes::WEB_ROOT."delete-classe"?>" method="post">
+                            <input type="hidden" name="id" value="<?=$value->id?>">
+                            
+                                <button type="submit" onclick='return deleteModal()' class="btn btn-danger">Supprimer</button>
+                           
+                        </form>
                     </div>                   
                 </td>
             </tr>
             <?php endforeach?>
         </tbody>
     </table>
-
+   <div class="d-flex justify-content-between my-4">
+        <?php if ($currentPage > 1): ?>
+            <a href="<?=$Constantes::WEB_ROOT."classes"?>/?page=<?= $currentPage - 1 ?>" class="btn btn-outline-primary">&laquo; Page Precedente</a>
+        <?php endif ?> 
+   </div>
+   <div class="d-flex justify-content-between my-4">
+        <?php if ($currentPage < $pages ): ?>
+            <a href="<?=$Constantes::WEB_ROOT."classes"?>/?page=<?= $currentPage + 1 ?>" class="btn btn-outline-primary"> Page Suivante &raquo;</a>
+        <?php endif ?> 
+   </div>
 </div>
 
 
+
+<script>
+    function deleteModal(){
+        return confirm ('etes vous sur de vouloir supprimer');
+    }
+</script>

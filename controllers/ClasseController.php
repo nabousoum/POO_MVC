@@ -7,6 +7,7 @@ use App\Core\Constantes;
 use App\Core\Controller;
 use App\Model\Inscription;
 use Digia\InstanceFactory\InstanceFactory;
+use Exception;
 use Symfony\Component\Validator\Validation;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -18,10 +19,24 @@ class ClasseController extends Controller{
                 $this->redirectToRoute('login');
             }
             else{
-                $classes = Classe::findAll();
-                //dd($data);
+                $currentPage = (int) ($_GET['page'] ?? 1);
+                if($currentPage <= 0){
+                   $currentPage = 1;
+                } 
+                $totalPages = count(Classe::findAll());
+               
+                //dd($currentPage);
+                $perPage = 5;
+                $pages = ceil($totalPages / $perPage);
+                if($currentPage > $pages || $currentPage<=0){
+                    $currentPage = 1;
+                } 
+                $offset = $perPage * ($currentPage - 1);
+                $classes = Classe::findTest($offset);
                 $this->render('classe/liste.html.php',$data=[
-                    "classes"=>$classes
+                    "classes"=>$classes,
+                    "currentPage"=>$currentPage,
+                    "pages" => $pages
                 ]);
             }
         }
@@ -65,6 +80,7 @@ class ClasseController extends Controller{
     public function delete(){
         if($this->request->isPost()){
             $id =(int) $_POST['id'];
+            //dd($id);
             Classe::delete($id);
             $this->redirectToRoute('classes');
         }
