@@ -110,5 +110,9 @@ class Demande extends Model{
         $db->closeConnexion();
         return $result;
     }
+    public static  function updateDemande($etat,$rp,$id){
+        $sql = " UPDATE `demande` SET `etat_demande` = ?, `rp_id` = ? WHERE `demande`.`id` = ?";
+        return parent::findBy($sql,[$etat,$rp,$id]);
+    }
  
 }

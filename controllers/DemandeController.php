@@ -62,7 +62,10 @@ class DemandeController extends Controller{
             }
         }
         if($this->request->isPost()){
-          
+            $id =(int) $_POST['id'];
+            //dd($id);
+            Demande::updateDemande("annule",$_SESSION['user']->id,$id);
+            $this->redirectToRoute('liste-all-demandeR');
         }
     }
     public function creer(){

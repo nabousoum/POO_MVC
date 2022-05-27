@@ -28,9 +28,7 @@
                         </div>
                         <form class="btn" action="<?=$Constantes::WEB_ROOT."delete-classe"?>" method="post">
                             <input type="hidden" name="id" value="<?=$value->id?>">
-                            
-                                <button type="submit" onclick='return deleteModal()' class="btn btn-danger">Supprimer</button>
-                           
+                            <button type="submit" onclick='return deleteModal()' class="btn btn-danger">Supprimer</button>
                         </form>
                     </div>                   
                 </td>

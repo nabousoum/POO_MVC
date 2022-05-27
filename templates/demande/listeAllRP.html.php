@@ -22,7 +22,11 @@
             <td><?= $value->etat_demande ?></td>
             <td>
                 <button type="button" class="btn btn-outline-success">Valider</button>
-                <button type="button" class="btn btn-outline-danger">Annulé</button>
+                <form class="btn" action="<?=$Constantes::WEB_ROOT."liste-all-demandeR"?>" method="post">
+                    <input type="hidden" name="id" value="<?=$value->id?>">
+                    <button type="submit" class="btn btn-outline-danger">Annuler</button>
+                </form>
+               
             </td>
         </tr>
     <?php endforeach?>
@@ -74,7 +78,7 @@
             <td><?= $value->etat_demande ?></td>
         </tr>
     <?php endforeach?>
-    </tbody>
+    </tbody>    
     </table>
 </div>
 
