@@ -63,9 +63,17 @@ class DemandeController extends Controller{
         }
         if($this->request->isPost()){
             $id =(int) $_POST['id'];
-            //dd($id);
-            Demande::updateDemande("annule",$_SESSION['user']->id,$id);
-            $this->redirectToRoute('liste-all-demandeR');
+            $action=$_POST['action'];
+            $idIns = $_POST['idIns'];
+            if($action == "refuser"){
+                Demande::updateDemande("annule",$_SESSION['user']->id,$id);
+                $this->redirectToRoute('liste-all-demandeR');
+            }
+            else if($action == "valider"){
+                Demande::updateDemande("valide",$_SESSION['user']->id,$id);
+                Demande::updateInscription($idIns);
+                $this->redirectToRoute('liste-all-demandeR');
+            }
         }
     }
     public function creer(){
@@ -82,7 +90,7 @@ class DemandeController extends Controller{
             $inscription = (int)$inscription[0]->id;
             $demande = $this->instance(Demande::class,$_POST);
             $demande->insertDemande($inscription);
-            $this->redirectToRoute('add-demande');
+            $this->redirectToRoute('liste-demande');
         }
     }
 }

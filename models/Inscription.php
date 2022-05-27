@@ -93,7 +93,7 @@ class Inscription extends Model{
         return parent::findBy($sql);
     }
     public static function demandeAllRP():array{
-        $sql="select d.id,p.nom_complet,p.matricule,c.libelle,d.libelle as 'libelledemande',d.etat_demande from ".self::table()." i, demande  
+        $sql="select d.id,i.id as idIns,p.nom_complet,p.matricule,c.libelle,d.libelle as 'libelledemande',d.etat_demande from ".self::table()." i, demande  
             d ,personne p, classe c
              where  i.id=d.inscription_id
              and i.etudiant_id=p.id

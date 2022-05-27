@@ -21,10 +21,16 @@
             <td><?= $value->libelledemande ?></td>
             <td><?= $value->etat_demande ?></td>
             <td>
-                <button type="button" class="btn btn-outline-success">Valider</button>
                 <form class="btn" action="<?=$Constantes::WEB_ROOT."liste-all-demandeR"?>" method="post">
                     <input type="hidden" name="id" value="<?=$value->id?>">
-                    <button type="submit" class="btn btn-outline-danger">Annuler</button>
+                    <input type="hidden" name="action" value="valider" >
+                    <input type="hidden" name="idIns" value="<?=$value->idIns?>" >
+                     <button type="submit" class="btn btn-outline-success">Valider</button>
+                </form>
+                <form class="btn" action="<?=$Constantes::WEB_ROOT."liste-all-demandeR"?>" method="post">
+                    <input type="hidden" name="id" value="<?=$value->id?>">
+                    <input type="hidden" name="action" value="refuser">
+                    <button type="submit" class="btn btn-outline-danger">Refuser</button>
                 </form>
                
             </td>
