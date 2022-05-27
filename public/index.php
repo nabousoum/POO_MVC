@@ -19,18 +19,18 @@ use App\Exception\RouteNotFoundException;
   // dd($pass);
 
 
-//   use App\Model\Professeur;
-//   use App\Model\AC;
-// use App\Model\AnneeScolaire;
-// use App\Model\Classe;
-// use App\Model\Demande;
-// use App\Model\Etudiant;
-// use App\Model\Inscription;
-// use App\Model\Module;
-// use App\Model\RP;
-// use App\Model\ModuleProfesseur;
-// dd(Classe::findByIdC(5));
-// dd(ModuleProfesseur::filtreProf());
+  use App\Model\Professeur;
+  use App\Model\AC;
+use App\Model\AnneeScolaire;
+use App\Model\Classe;
+use App\Model\Demande;
+use App\Model\Etudiant;
+use App\Model\Inscription;
+use App\Model\Module;
+use App\Model\RP;
+use App\Model\ModuleProfesseur;
+//dd(Demande::findEtudiant());
+//dd(ModuleProfesseur::filtreProf());
 
 
 /*    $request = new Request;

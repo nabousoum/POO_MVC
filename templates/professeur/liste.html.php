@@ -15,7 +15,7 @@
     <form action="<?=$Constantes::WEB_ROOT."liste-prof"?>" method="post">
         <div class="row">
             <div class="col">
-                <select class="form-select w-50" name="filtreProf" aria-label="Default select example">
+                <select class="form-select w-100" name="filtreProf" aria-label="Default select example">
                 <option value="" selected>---Les modules disponibles---</option>
                 <?php foreach($modules as $value) : ?>
                     <option value="<?=$value->id?>"><?=$value->libelle?></option>

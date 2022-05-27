@@ -16,7 +16,8 @@ class ModuleController extends Controller{
     public function ajouterModule(){
         if($this->request->isPost()){
              
-            $module = $this->instance(Module::class,$_POST);$validator = Validation::createValidator();
+            $module = $this->instance(Module::class,$_POST);
+            $validator = Validation::createValidator();
             $violations = $validator->validate($_POST['libelle'], [
                 new NotBlank(),
             ]);

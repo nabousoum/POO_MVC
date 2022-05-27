@@ -1,8 +1,9 @@
 <div class="container mt-5">
-    <h1>Liste des Classes</h1>
+    <h1>Liste des Classes</h1><br>
     <a class="nav-link" href="<?=$Constantes::WEB_ROOT."add-classe"?>">
         <button type="button" class="btn btn-primary">AJOUTER UNE CLASSE</button>
     </a>
+    <br><br>
     <table class="table table-striped">
         <thead>
             <tr>

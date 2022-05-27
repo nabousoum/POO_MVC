@@ -66,4 +66,3 @@
         </div>
     </div>
 </section>
-<a class="nav-link" href="<?=$Constantes::WEB_ROOT."liste-insc"?>"><button type="button" class="btn btn-success">Voir la liste</button></a>  

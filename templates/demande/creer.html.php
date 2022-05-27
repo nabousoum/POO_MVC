@@ -5,7 +5,7 @@
     Votre demande a bien été prise en compte
     </div>
   <?php } ?>
-  <h3>VOus pouvez formuler votre demande d'annulation ou de suspension de votre inscription</h3>
+  <marquee><h3>Vous pouvez formuler votre demande d'annulation ou de suspension de votre inscription</h3></marquee>
 <section class="gradient-custom">
   <div class="container py-5 h-100">
     <div class="row justify-content-center align-items-center h-100">

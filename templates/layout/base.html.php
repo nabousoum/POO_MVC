@@ -121,6 +121,7 @@
 
 
 <?=$contents_for_views?>
+
 <script src="<?=$Constantes::WEB_ROOT.'bootstrap/jquery.min.js'?>"></script>
 <script src="<?=$Constantes::WEB_ROOT.'bootstrap/bootstrap.bundle.min.js'?>"></script>
 <script src="<?=$Constantes::WEB_ROOT.'bootstrap/bootstrap-select.min.js'?>"></script>

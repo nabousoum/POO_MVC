@@ -10,11 +10,10 @@ class Demande extends Model{
     private string $libelle;
     private string $etat;
 
-    public function __construct(?string $libelle=null,?string $etat=null,?int $inscription_id=null,)
+    public function __construct(?string $libelle=null,?string $etat=null)
     {
         $this->libelle =$libelle;
         $this->etat = "en cours";
-        $this->inscription_id=$inscription_id;
     }
     public static function table()
     {
@@ -97,13 +96,19 @@ class Demande extends Model{
         return parent::findBy($sql,[2],true);
     }
     
-    public function insert():int{
+    public static function findEtudiant(){
+        $sql = "select distinct i.id 
+                from demande d , inscription i, personne p
+                where etudiant_id = ?";
+        return parent::findBy($sql,[$_SESSION['user']->id]);
+    }
+    public function insertDemande($inscription):int{
         $db = self::database();
         $db->connexionBD();
         $sql="INSERT INTO ".self::table()." (`libelle`,`etat_demande`,`inscription_id`,`rp_id`) VALUES (?,?,?,?);";
-        $result =  $db->executeUpdate($sql,[$this->libelle,$this->etat,$this->inscription_id,$this->etat,$_SESSION['user']->id]);
+        $result =  $db->executeUpdate($sql,[$this->libelle,$this->etat,$inscription,null]);
         $db->closeConnexion();
         return $result;
     }
-
+ 
 }

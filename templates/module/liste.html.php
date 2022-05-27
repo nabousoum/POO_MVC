@@ -19,23 +19,38 @@
         <div class="row">
             <div class="form-outline">
                 <label class="form-label" for="firstName">Libelle</label>
-                <input  type="text" id="firstName" name="libelle" class="form-control form-control-lg w-50" />
-                <?php if(isset($errors)): ?>
-                    <small style="color:red"> <?= $errors; ?> </small>
-                <?php endif ?><br>
-                <input class="btn btn-primary btn-lg" name="submit" type="submit" value="Ajouter" />  <br>  
+                <div class="row">
+                    <div class="col">
+                        <input  type="text" id="firstName" name="libelle" class="form-control form-control-lg w-100" />
+                        <?php if(isset($errors)): ?>
+                            <small style="color:red"> <?= $errors; ?> </small>
+                        <?php endif ?><br>
+                    </div>
+                    <div class="col">
+                        <input class="btn btn-primary btn-lg" name="submit" type="submit" value="Ajouter" />  <br>  
+                    </div>
+                    
+                </div>
+                
             </div>
         </div><br>
     </form>
     <form action="<?=$Constantes::WEB_ROOT."liste-module"?>" method="post">
-        <select class="form-select w-50" name="filtreModule" aria-label="Default select example">
-            <option value="" selected>---Les professeurs disponibles---</option>
-            <?php foreach($profs as $value) : ?>
-                <option value="<?=$value->id?>"><?=$value->nom_complet?></option>
-            <?php endforeach?>
-        </select>
-        <button type="submit" class="btn btn-primary">Rechercher</button>
+    <div class="row">
+        <div class="col">
+            <select class="form-select w-100" name="filtreModule" aria-label="Default select example">
+                <option value="" selected>---Les professeurs disponibles---</option>
+                <?php foreach($profs as $value) : ?>
+                    <option value="<?=$value->id?>"><?=$value->nom_complet?></option>
+                <?php endforeach?>
+            </select>
+        </div>
+        <div class="col">
+            <button type="submit" class="btn btn-primary">Rechercher</button>
+        </div>
+    </div>    
     </form>
+    <br><br>
     
     <table class="table table-striped">
         <thead>

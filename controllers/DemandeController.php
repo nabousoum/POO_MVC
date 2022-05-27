@@ -1,9 +1,10 @@
 <?php
 namespace App\Controller;
 
-use App\Model\User;
-use App\Core\Controller;
 use App\Core\Role;
+use App\Model\User;
+use App\Model\Demande;
+use App\Core\Controller;
 use App\Model\Inscription;
 
 class DemandeController extends Controller{
@@ -74,7 +75,11 @@ class DemandeController extends Controller{
             }
         }
         if($this->request->isPost()){
-          
+            $inscription = Demande::findEtudiant();
+            $inscription = (int)$inscription[0]->id;
+            $demande = $this->instance(Demande::class,$_POST);
+            $demande->insertDemande($inscription);
+            $this->redirectToRoute('add-demande');
         }
     }
 }
