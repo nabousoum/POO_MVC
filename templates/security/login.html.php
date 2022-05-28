@@ -1,3 +1,8 @@
+<?php if ($test ==1): ?>
+  <div class="alert alert-danger" role="alert">
+    LOGIN OU MOT DE PASSE INCORRECT !!
+  </div>
+<?php endif?>
 <section class="h-100 gradient-form" style="background-color: #eee;">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -23,7 +28,7 @@
                   </div>
 
                   <div class="form-outline mb-4">
-                    <input type="password"  name="password" id="form2Example22" class="form-control" />
+                    <input type="password"  placeholder="Password" name="password" id="form2Example22" class="form-control" />
                     <label class="form-label" for="form2Example22">Password</label>
                   </div>
 

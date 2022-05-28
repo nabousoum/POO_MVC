@@ -119,5 +119,7 @@ class Demande extends Model{
         $sql="UPDATE `inscription` SET `etat_ins` = 'annule' WHERE `inscription`.`id` = ?";
         return parent::findBy($sql,[$id]);
     }
+
+  
  
 }

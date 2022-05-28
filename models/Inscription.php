@@ -84,6 +84,7 @@ class Inscription extends Model{
             and p.id=?";
         return parent::findBy($sql,[$_SESSION['user']->id]);
     }
+
     public static function demandeAll():array{
         $sql="select p.nom_complet,p.matricule,c.libelle,d.libelle as 'libelledemande',d.etat_demande from ".self::table()." i, demande  
             d ,personne p, classe c
@@ -98,25 +99,28 @@ class Inscription extends Model{
              where  i.id=d.inscription_id
              and i.etudiant_id=p.id
              and i.classe_id=c.id
-             and d.etat_demande like 'en cours'";
+             and d.etat_demande like 'en cours'
+             order by id desc";
         return parent::findBy($sql);
     }
     public static function demandeAnnule():array{
-        $sql="select p.nom_complet,p.matricule,c.libelle,d.libelle as 'libelledemande',d.etat_demande from ".self::table()." i, demande  
+        $sql="select d.id, p.nom_complet,p.matricule,c.libelle,d.libelle as 'libelledemande',d.etat_demande from ".self::table()." i, demande  
             d ,personne p, classe c
              where  i.id=d.inscription_id
              and i.etudiant_id=p.id
              and i.classe_id=c.id
-             and d.etat_demande like 'annule'";
+             and d.etat_demande like 'annule'
+             order by d.id desc";
         return parent::findBy($sql);
     }
     public static function demandeValide():array{
-        $sql="select p.nom_complet,p.matricule,c.libelle,d.libelle as 'libelledemande',d.etat_demande from ".self::table()." i, demande  
+        $sql="select d.id,p.nom_complet,p.matricule,c.libelle,d.libelle as 'libelledemande',d.etat_demande from ".self::table()." i, demande  
             d ,personne p, classe c
              where  i.id=d.inscription_id
              and i.etudiant_id=p.id
              and i.classe_id=c.id
-             and d.etat_demande like 'valide' ";
+             and d.etat_demande like 'valide' 
+             order by d.id desc";
         return parent::findBy($sql);
     }
 
@@ -140,4 +144,15 @@ class Inscription extends Model{
                and i.etat_ins like 'en cours'";
         return parent::findBy($sql);
     }
+
+    public static function findEtat($etat){
+        $sql="select d.libelle,d.etat_demande from ".self::table()." i, demande  
+            d ,personne p
+             where i.id=d.inscription_id
+             and p.id = i.etudiant_id
+            and p.id=? 
+            and d.etat_demande like ?";
+            return parent::findBy($sql,[$_SESSION['user']->id,$etat]);
+    }
+ 
 }

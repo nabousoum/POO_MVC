@@ -10,8 +10,11 @@ class SecurityController extends Controller{
 
     public function authentification(){
         if($this->request->isGet()){
+            $test = 0;
             $this->layout = "connexion";
-            $this->render('security/login.html.php');
+            $this->render('security/login.html.php',$data=[
+                "test"=>$test
+            ]);
         }
         if($this->request->isPost()){
             
@@ -24,7 +27,7 @@ class SecurityController extends Controller{
                   $this->redirectToRoute('liste-prof');
                }
                elseif(Role::isAC()){
-                $this->redirectToRoute('liste-insc');
+                $this->redirectToRoute('liste-etu');
                }
                elseif(Role::isEtudiant()){
                 $this->redirectToRoute('liste-demande');
@@ -32,7 +35,12 @@ class SecurityController extends Controller{
               // $this->render('personne/accueil.html.php');
             }
             else{
-                dd('erreur');
+                $this->layout = "connexion";
+                $test=1;
+                $this->render('security/login.html.php',$data=[
+                    "user_connect"=>$user_connect,
+                    "test"=>$test
+                ]);
             }
         }
     }
@@ -42,5 +50,9 @@ class SecurityController extends Controller{
         $this->redirectToRoute('login');
         exit();
        
+    }
+    public function error(){
+        $this->layout = "connexion";
+        $this->render('errors/pageErreur.html.php');
     }
 }

@@ -16,7 +16,7 @@
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav style="border-radius: 20px; border-color:pink; box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px; " class="navbar navbar-expand-lg navbar-light bg-light">
         <!-- Container wrapper -->
         <div class="container-fluid">
             <!-- Toggle button -->
@@ -62,15 +62,9 @@
                 <?php if($Role::isAC()):?>
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="<?=$Constantes::WEB_ROOT."liste-insc"?>">
-                                <i class="fa-solid fa-list"></i>
-                                LISTE DES INSCRIPTIONS
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="<?=$Constantes::WEB_ROOT."liste-etu"?>">
                                 <i class="fa-solid fa-list"></i>
-                                LISTE DES ETUDIANTS
+                                LISTE DES INSCRIPTIONS
                             </a>
                         </li>
                         <li class="nav-item">
@@ -107,9 +101,6 @@
                 <?php endif?>
                 <!-- Left links -->
             </div>
-            <!-- Collapsible wrapper -->
-
-            <!-- Right elements -->
             <div class="d-flex align-items-center">
                 <a class="nav-link" href="<?=$Constantes::WEB_ROOT."logout"?>">
                     <button type="button" class="btn btn-primary">DECONNEXION</button>
@@ -121,6 +112,9 @@
 
 
 <?=$contents_for_views?>
+<div class="fixed-bottom">
+    <marquee><h4>Année scolaire 2021-2022 !!</h4></marquee>
+</div>
 
 <script src="<?=$Constantes::WEB_ROOT.'bootstrap/jquery.min.js'?>"></script>
 <script src="<?=$Constantes::WEB_ROOT.'bootstrap/bootstrap.bundle.min.js'?>"></script>

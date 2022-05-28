@@ -31,6 +31,8 @@ $router->route('/liste-all-demande',[DemandeController::class,"listerAll"]);
 $router->route('/liste-all-demandeR',[DemandeController::class,"listerAllRP"]);
 $router->route('/delete-classe',[ClasseController::class,"delete"]);
 $router->route('/edit-classe',[ClasseController::class,"edit"]);
+$router->route('/page-error',[SecurityController::class,"error"]);
+
 
 
 

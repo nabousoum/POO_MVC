@@ -26,6 +26,12 @@ class DemandeController extends Controller{
             }
         }
         if($this->request->isPost()){
+
+            //$demandes = Inscription::demandes();
+            $demandes = Inscription::findEtat($_POST['filtreEtat']);
+            $this->render('demande/liste.html.php',$data=[
+                "demandes"=>$demandes
+            ]);
           
         }
     }

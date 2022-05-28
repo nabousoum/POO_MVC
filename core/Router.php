@@ -34,7 +34,7 @@ class Router{
                call_user_func(array($ctrl,$action));
             }
             else{
-                throw new RouteNotFoundException();
+                $this->controller->redirectToRoute('page-error');
             }
 
         }

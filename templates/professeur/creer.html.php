@@ -4,6 +4,7 @@
     insertion du professeur reussie
     </div>
   <?php } ?>
+  <br><br><br>
 <section class="gradient-custom">
     <div class="container py-10 h-100">
         <div class="row justify-content-center align-items-center h-100">
@@ -71,4 +72,3 @@
         </div>
     </div>
 </section>
-<a class="nav-link" href="<?=$Constantes::WEB_ROOT."liste-prof"?>"><button type="button" class="btn btn-success">Voir la liste</button></a>  
