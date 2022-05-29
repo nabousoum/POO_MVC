@@ -17,8 +17,7 @@ use App\Exception\RouteNotFoundException;
   // $password = "etu";
   // $pass = password_hash($password,PASSWORD_BCRYPT);
   // dd($pass);
-
-
+//dd(urlencode("id=2"));
   use App\Model\Professeur;
   use App\Model\AC;
 use App\Model\AnneeScolaire;
@@ -29,8 +28,9 @@ use App\Model\Inscription;
 use App\Model\Module;
 use App\Model\RP;
 use App\Model\ModuleProfesseur;
-//dd(Demande::findEtudiant());
-//dd(ModuleProfesseur::filtreProf());
+//dd(Classe::encode(1,"~nu!j_EBK,:XE2e{kQ!bhuQ9j]%SlF]z3L^Qy.Q[Gn?NCe&lt;BBy&gt;^LHv~1P]nq~&amp;;"));
+  //dd(Classe::decode("w2","~nu!j_EBK,:XE2e{kQ!bhuQ9j]%SlF]z3L^Qy.Q[Gn?NCe&lt;BBy&gt;^LHv~1P]nq~&amp;;"));
+  //dd(ModuleProfesseur::filtreProf());
 
 
 /*    $request = new Request;

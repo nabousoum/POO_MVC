@@ -9,6 +9,7 @@
             <th scope="col">Sexe</th>
             <th scope="col">Matricule</th>
             <th scope="col">Adresse</th>
+            <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -19,6 +20,11 @@
                 <td><?= $value->sexe ?></td> 
                 <td><?= $value->matricule ?></td>
                 <td><?= $value->adresse ?></td>
+                <td>
+                    <a href="<?=$Constantes::WEB_ROOT."add-insc"?>"
+                         <button type="button" class="btn btn-outline-primary">Reinscrire</button>
+                    </a>
+                </td>
             </tr>
             <?php endforeach?>
         </tbody>

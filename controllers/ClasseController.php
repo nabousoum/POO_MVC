@@ -19,6 +19,7 @@ class ClasseController extends Controller{
                 $this->redirectToRoute('login');
             }
             else{
+
                 $currentPage = (int) ($_GET['page'] ?? 1);
                 if($currentPage <= 0){
                    $currentPage = 1;
@@ -94,8 +95,10 @@ class ClasseController extends Controller{
         if($this->request->isGet()){
            $id =$this->request->query();
             $id = $id[0];
+            $id= Controller::decode($id,Constantes::ENCODE_KEY());
             $tabId = explode("=",$id);
             $id = intVal($tabId[1]);
+           // dd($id);
             $classe = Classe::findByIdC($id);
             $this->render('classe/creer.html.php',$data=[
                 'id'=>$id,
@@ -107,6 +110,7 @@ class ClasseController extends Controller{
         if($this->request->isPost()){
             $id =$this->request->query();
             $id = $id[0];
+            $id= Controller::decode($id,Constantes::ENCODE_KEY());
             $tabId = explode("=",$id);
             $id = intVal($tabId[1]);
             $classe = $this->instance(Classe::class,$_POST);

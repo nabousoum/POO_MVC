@@ -13,6 +13,7 @@ use App\Exception\RouteNotFoundException;
 
 
 $router = new Router;
+$router->route('/',[SecurityController::class,"authentification"]);
 $router->route('/login',[SecurityController::class,"authentification"]);
 $router->route('/logout',[SecurityController::class,"deconnexion"]);
 $router->route('/classes',[ClasseController::class,"listerClasse"]);

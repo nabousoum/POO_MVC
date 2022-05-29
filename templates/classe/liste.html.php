@@ -1,3 +1,6 @@
+<?php 
+    use App\Core\Controller;
+?>
 <div class="container mt-5">
     <h1>Liste des Classes</h1><br>
     <a class="nav-link" href="<?=$Constantes::WEB_ROOT."add-classe"?>">
@@ -22,7 +25,7 @@
                 <td>
                 <div>
                         <div class="btn">
-                            <a href="<?=$Constantes::WEB_ROOT."edit-classe/id=$value->id"?>"
+                        <a href=" <?= $Constantes::WEB_ROOT."edit-classe/".Controller::encode("id=$value->id",$Constantes::ENCODE_KEY()) ?> "
                             <button type="button" class="btn btn-warning">Modifier</button>
                             </a>
                         </div>

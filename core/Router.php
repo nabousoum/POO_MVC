@@ -39,7 +39,7 @@ class Router{
 
         }
         else{
-           $this->controller->redirectToRoute('login');
+           $this->controller->redirectToRoute('page-error');
         }
     }
 }
