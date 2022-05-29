@@ -21,7 +21,7 @@
                 <td><?= $value->matricule ?></td>
                 <td><?= $value->adresse ?></td>
                 <td>
-                    <a href="<?=$Constantes::WEB_ROOT."add-insc"?>"
+                    <a href="<?=$Constantes::WEB_ROOT."add-reinscription/id=$value->id"?>"
                          <button type="button" class="btn btn-outline-primary">Reinscrire</button>
                     </a>
                 </td>

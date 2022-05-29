@@ -30,7 +30,7 @@ use App\Model\RP;
 use App\Model\ModuleProfesseur;
 //dd(Classe::encode(1,"~nu!j_EBK,:XE2e{kQ!bhuQ9j]%SlF]z3L^Qy.Q[Gn?NCe&lt;BBy&gt;^LHv~1P]nq~&amp;;"));
   //dd(Classe::decode("w2","~nu!j_EBK,:XE2e{kQ!bhuQ9j]%SlF]z3L^Qy.Q[Gn?NCe&lt;BBy&gt;^LHv~1P]nq~&amp;;"));
-  //dd(ModuleProfesseur::filtreProf());
+
 
 
 /*    $request = new Request;

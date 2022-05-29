@@ -4,8 +4,9 @@ namespace App\Controller;
 use App\Core\Role;
 use App\Model\User;
 use App\Model\Classe;
-use App\Core\Controller;
 use App\Model\Etudiant;
+use App\Core\Constantes;
+use App\Core\Controller;
 use App\Model\Inscription;
 
 class InscriptionController extends Controller{
@@ -16,9 +17,9 @@ class InscriptionController extends Controller{
                 $this->redirectToRoute('login');
             }
             else{
-                $inscriptions = Inscription::findInscription();
-                $this->render('inscription/liste.html.php',$data=[
-                    "inscriptions"=>$inscriptions
+                $etudiants = Inscription::findInscription();
+                $this->render('etudiant/liste.html.php',$data=[
+                    "etudiants"=>$etudiants
                 ]);
             }
         }
@@ -36,7 +37,9 @@ class InscriptionController extends Controller{
             else{
                 $classes = Classe::findAll();
                 $this->render('inscription/creer.html.php',$data=[
-                    "classes"=>$classes
+                    "titre" => "Inscrire etudiant",
+                    "classes"=>$classes,
+                    "action" => Constantes::WEB_ROOT."add-insc",
                 ]);
             }
         }
@@ -57,6 +60,42 @@ class InscriptionController extends Controller{
             $inscription->insert();
             $this->render('inscription/creer.html.php');
 
+        }
+    }
+
+    public function reinscription(){
+        if($this->request->isGet()){
+            $id =$this->request->query();
+            $id = $id[0];
+            $tabId = explode("=",$id);
+            $id = intVal($tabId[1]);
+            //dd($id);
+            $inscription = Etudiant::findByIdEtu($id);
+            //dd($inscription);
+            $classes = Classe::findAll();
+            $this->render('inscription/creer.html.php',$data=[
+                "titre" => "Reinscrire l'etudiant",
+                "inscription"=>$inscription[0],
+                "action" => Constantes::WEB_ROOT."add-insc".$inscription[0]->id,
+                "classes"=>$classes
+            ]);
+        }
+        if($this->request->isPost()){
+            $id =$this->request->query();
+            $id = $id[0];
+            $tabId = explode("=",$id);
+            $id = intVal($tabId[1]);
+           
+            $id_last_etu =$id;
+            $inscription = $this->instance(Inscription::class,[
+                'etudiant_id' =>$id_last_etu,
+                'classe_id' => $_POST['classe_id']
+            ]);
+            $inscription->insert();
+            $idIns = $_POST["idIns"];
+           // dd($idIns);
+            Inscription::updateReinscription($idIns);
+            $this->redirectToRoute('liste-etu');
         }
     }
 }

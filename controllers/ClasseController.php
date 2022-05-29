@@ -37,7 +37,8 @@ class ClasseController extends Controller{
                 $this->render('classe/liste.html.php',$data=[
                     "classes"=>$classes,
                     "currentPage"=>$currentPage,
-                    "pages" => $pages
+                    "pages" => $pages,
+                    "Controller"=>Controller::class
                 ]);
             }
         }

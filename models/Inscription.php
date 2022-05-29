@@ -3,6 +3,7 @@
 namespace App\Model;
 
 use App\Core\Model;
+use LDAP\Result;
 
 class Inscription extends Model{
 
@@ -135,13 +136,12 @@ class Inscription extends Model{
     }
 
     public static function findInscription(){
-        $sql = "select i.etat_ins,p.nom_complet, p.matricule,p.sexe,c.libelle as 'libelleClasse',a.libelle
+        $sql = "select p.id, i.id as 'idIns',p.adresse,i.etat_ins,p.nom_complet, p.matricule,p.sexe,c.libelle as 'libelleClasse',a.libelle
                from personne p, classe c, annee_scolaire a, inscription i
                where i.etudiant_id=p.id
                and i.classe_id=c.id
                and i.annee_id=a.id
-               and p.role='ROLE_ETUDIANT'
-               and i.etat_ins like 'en cours'";
+               and p.role='ROLE_ETUDIANT'";
         return parent::findBy($sql);
     }
 
@@ -154,5 +154,9 @@ class Inscription extends Model{
             and d.etat_demande like ?";
             return parent::findBy($sql,[$_SESSION['user']->id,$etat]);
     }
- 
+
+    public static function updateReinscription($id){
+        $sql="UPDATE `inscription` SET `etat_ins` = 'termine' WHERE `inscription`.`id` = ?";
+        return parent::findBy($sql,[$id]);
+    }
 }

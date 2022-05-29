@@ -15,10 +15,10 @@ class EtudiantController extends Controller{
                 $this->redirectToRoute('login');
             }
             else{
-                $etudiants = Etudiant::findAll();
-                $this->render('etudiant/liste.html.php',$data=[
-                    "etudiants"=>$etudiants
-                ]);
+                // $etudiants = Etudiant::findAll();
+                // $this->render('etudiant/liste.html.php',$data=[
+                //     "etudiants"=>$etudiants
+                // ]);
             }
         }
         if($this->request->isPost()){

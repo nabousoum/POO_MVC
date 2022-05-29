@@ -62,7 +62,7 @@
                 <?php if($Role::isAC()):?>
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="<?=$Constantes::WEB_ROOT."liste-etu"?>">
+                            <a class="nav-link" href="<?=$Constantes::WEB_ROOT."liste-insc"?>">
                                 <i class="fa-solid fa-list"></i>
                                 LISTE DES INSCRIPTIONS
                             </a>
