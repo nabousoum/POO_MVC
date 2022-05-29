@@ -3,18 +3,17 @@
 namespace App\Controller;
 
 use App\Core\Role;
-use App\Model\Module;
-use App\Core\Controller;
 use App\Model\Classe;
-use App\Model\ClasseProfesseur;
-use App\Model\ModuleProfesseur;
+use App\Model\Module;
+use App\Core\Constantes;
+use App\Core\Controller;
 use App\Model\Professeur;
+use App\Model\ClasseProfesseur;
+use App\Model\Etudiant;
+use App\Model\ModuleProfesseur;
 
 class ProfesseurController extends Controller{
 
-    public function affecterClasse(){
-        
-    }
 
     public function ajouterProf(){
         if($this->request->isGet()){
@@ -26,7 +25,9 @@ class ProfesseurController extends Controller{
                 $modules = Module::findAll();
                 $this->render('professeur/creer.html.php',$data=[
                     "classes"=>$classes,
-                    "modules"=>$modules
+                    "modules"=>$modules,
+                    "titre"=>"Ajouter Professeur",
+                    "action" => Constantes::WEB_ROOT."add-prof",
                 ]);
             }
         }
@@ -88,7 +89,8 @@ class ProfesseurController extends Controller{
                     "profs"=>$profs,
                     "modules" => $modules,
                     "currentPage"=>$currentPage,
-                    "pages" => $pages
+                    "pages" => $pages,
+                    "Controller"=> Controller::class
                 ]);
             }
         }
@@ -104,5 +106,48 @@ class ProfesseurController extends Controller{
             ]);
         }
        
+    }
+
+
+    public function affecterClasse(){
+        if($this->request->isGet()){
+            $id =$this->request->query();
+            $id = $id[0];
+            $id= Controller::decode($id,Constantes::ENCODE_KEY());
+            $tabId = explode("=",$id);
+            $id = intVal($tabId[1]);
+            $professeur = Professeur::findByIdP($id);
+            $classes = Classe::findAll();
+            $modules = Module::findAll();
+            //dd($professeur[0]->id);
+           $this->render('professeur/creer.html.php',$data=[
+               "titre"=>"Affecter classes",
+               "professeur"=>$professeur[0],
+               "classes"=>$classes,
+               "modules"=>$modules,
+               "action" => Constantes::WEB_ROOT."add-prof".$professeur[0]->id,
+           ]);
+        }
+        if($this->request->isPost()){
+            $id=$_POST['idProf'];
+            $id_last_prof = $id;
+            
+            foreach($_POST['classe_id'] as $classe_id){
+                $classe_prof = $this->instance(ClasseProfesseur::class,[
+                    'classe_id' => $classe_id,
+                    'prof_id' => $id_last_prof
+                ]);
+                $classe_prof->insert();
+            }
+
+            foreach($_POST['module_id'] as $module_id){
+                $module_prof = $this->instance(ModuleProfesseur::class,[
+                    'module_id' => $module_id,
+                    'prof_id' => $id_last_prof
+                ]);
+                $module_prof->insert();
+            } 
+            $this->redirectToRoute('liste-prof');
+        }
     }
 }

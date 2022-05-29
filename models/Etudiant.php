@@ -97,7 +97,7 @@ class Etudiant extends User{
       return $result;
   }
 
-    public static function findByIdEtu($id)
+    public static function findByIdP($id)
     {
         $sql="select p.*  from personne p 
         where p.id=?";

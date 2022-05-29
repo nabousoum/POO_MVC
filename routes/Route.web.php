@@ -34,7 +34,7 @@ $router->route('/delete-classe',[ClasseController::class,"delete"]);
 $router->route('/edit-classe',[ClasseController::class,"edit"]);
 $router->route('/page-error',[SecurityController::class,"error"]);
 $router->route('/add-reinscription',[InscriptionController::class,"reinscription"]);
-
+$router->route('/affecter-classe',[ProfesseurController::class,"affecterClasse"]);
 
 
 

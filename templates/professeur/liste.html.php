@@ -48,7 +48,9 @@
                     <td><?= $value->sexe ?></td> 
                     <td><?= $value->grade ?></td>
                     <td>                  
-                        <button type="button" class="btn btn-outline-info">Affecter classe</button>
+                    <a href="<?=$Constantes::WEB_ROOT."affecter-classe/".$Controller::encode("id=$value->id",$Constantes::ENCODE_KEY())?>"
+                         <button type="button" class="btn btn-outline-primary">Affecter classe</button>
+                    </a>
                     </td>
                 </tr>
             <?php endforeach?>

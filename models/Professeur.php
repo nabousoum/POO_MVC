@@ -81,5 +81,11 @@ use User;
     $sql="select * from personne where role like 'ROLE_PROFESSEUR' order by id desc LIMIT 5 OFFSET $offset ";
     return self::findBy($sql);
   }
+  public static function findByIdP($id)
+  {
+      $sql="select p.*  from personne p 
+      where p.id=?";
+      return parent::findBy($sql,[$id]);
+  }
 
 }

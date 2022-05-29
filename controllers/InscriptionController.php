@@ -72,7 +72,7 @@ class InscriptionController extends Controller{
             $tabId = explode("=",$id);
             $id = intVal($tabId[1]);
             //dd($id);
-            $inscription = Etudiant::findByIdEtu($id);
+            $inscription = Etudiant::findByIdP($id);
             $test = Etudiant::findByIdIns($inscription[0]->id);
             //dd($test);
             $classes = Classe::findAll();
