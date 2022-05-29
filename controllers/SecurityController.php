@@ -27,7 +27,7 @@ class SecurityController extends Controller{
                   $this->redirectToRoute('liste-prof');
                }
                elseif(Role::isAC()){
-                $this->redirectToRoute('liste-etu');
+                $this->redirectToRoute('liste-insc');
                }
                elseif(Role::isEtudiant()){
                 $this->redirectToRoute('liste-demande');

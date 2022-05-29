@@ -99,9 +99,14 @@ class Etudiant extends User{
 
     public static function findByIdEtu($id)
     {
-        $sql="select * from personne p,inscription i 
-        where p.id=?
-        and i.etudiant_id = p.id";
+        $sql="select p.*  from personne p 
+        where p.id=?";
+        return parent::findBy($sql,[$id]);
+    }
+    public static function findByIdIns($id)
+    {
+        $sql="select i.*  from inscription i 
+        where etudiant_id=?";
         return parent::findBy($sql,[$id]);
     }
 }

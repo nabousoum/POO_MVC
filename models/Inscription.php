@@ -156,7 +156,7 @@ class Inscription extends Model{
     }
 
     public static function updateReinscription($id){
-        $sql="UPDATE `inscription` SET `etat_ins` = 'termine' WHERE `inscription`.`id` = ?";
+        $sql="UPDATE `inscription` SET `etat_ins` = 'termine', annee_id = 3 WHERE `inscription`.`id` = ?";
         return parent::findBy($sql,[$id]);
     }
 }

@@ -1,5 +1,5 @@
 <?php
-//
+
 
 use App\Model\Inscription;
 
@@ -17,7 +17,7 @@ use App\Model\Inscription;
                         <h3 class="mb-4 pb-2 pb-md-0 mb-md-5"><?=$data['titre']?> <?=$inscription->nom_complet?></h3>
                         <h3>Matricule <?= $inscription->matricule?></h3><br>
                         <form action="" method="POST">
-                           <input type="hidden" name="idIns" value="<?=$inscription->idIns?>">
+                           <input type="hidden" name="idIns" value="<?=$test->id?>">
                             <div class="row">
                                 <div class="col-md-6 mb-4">
 

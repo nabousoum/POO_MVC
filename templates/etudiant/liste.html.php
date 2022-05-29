@@ -9,6 +9,7 @@
             <th scope="col">Sexe</th>
             <th scope="col">Matricule</th>
             <th scope="col">Adresse</th>
+            <th scope="col">Année scolaire</th>
             <th scope="col">Action</th>
             </tr>
         </thead>
@@ -20,8 +21,9 @@
                 <td><?= $value->sexe ?></td> 
                 <td><?= $value->matricule ?></td>
                 <td><?= $value->adresse ?></td>
+                <td><?= $value->libelle ?></td>
                 <td>
-                    <a href="<?=$Constantes::WEB_ROOT."add-reinscription/id=$value->id"?>"
+                    <a href="<?=$Constantes::WEB_ROOT."add-reinscription/".$Controller::encode("id=$value->id",$Constantes::ENCODE_KEY())?>"
                          <button type="button" class="btn btn-outline-primary">Reinscrire</button>
                     </a>
                 </td>

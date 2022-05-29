@@ -19,7 +19,8 @@ class InscriptionController extends Controller{
             else{
                 $etudiants = Inscription::findInscription();
                 $this->render('etudiant/liste.html.php',$data=[
-                    "etudiants"=>$etudiants
+                    "etudiants"=>$etudiants,
+                    "Controller"=>Controller::class
                 ]);
             }
         }
@@ -67,22 +68,26 @@ class InscriptionController extends Controller{
         if($this->request->isGet()){
             $id =$this->request->query();
             $id = $id[0];
+            $id= Controller::decode($id,Constantes::ENCODE_KEY());
             $tabId = explode("=",$id);
             $id = intVal($tabId[1]);
             //dd($id);
             $inscription = Etudiant::findByIdEtu($id);
-            //dd($inscription);
+            $test = Etudiant::findByIdIns($inscription[0]->id);
+            //dd($test);
             $classes = Classe::findAll();
             $this->render('inscription/creer.html.php',$data=[
                 "titre" => "Reinscrire l'etudiant",
                 "inscription"=>$inscription[0],
                 "action" => Constantes::WEB_ROOT."add-insc".$inscription[0]->id,
-                "classes"=>$classes
+                "classes"=>$classes,
+                "test"=>$test[0]
             ]);
         }
         if($this->request->isPost()){
             $id =$this->request->query();
             $id = $id[0];
+            $id= Controller::decode($id,Constantes::ENCODE_KEY());
             $tabId = explode("=",$id);
             $id = intVal($tabId[1]);
            
@@ -95,7 +100,7 @@ class InscriptionController extends Controller{
             $idIns = $_POST["idIns"];
            // dd($idIns);
             Inscription::updateReinscription($idIns);
-            $this->redirectToRoute('liste-etu');
+            $this->redirectToRoute('liste-insc');
         }
     }
 }
